@@ -50,7 +50,7 @@ function renderProjects(filteredProjects) {
         const color = pastelColors[index % pastelColors.length];
         const initials = getInitials(project.title);
         const tagsHtml = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
-        const phoneNumber = '8590342039';
+        const phoneNumber = '918590342039';
         const message = `Hi! I'm interested in the ${project.title}. Can you share more details?`;
         const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         
