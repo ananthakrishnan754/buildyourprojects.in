@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectBuilder | Premium Project Catalog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Inter:wght@400;600;700;800&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>buildyourprojects</h1>
+            </div>
+            <div class="header-right">
+                <div class="search-icon-wrapper" id="search-icon-wrapper">
+                    <i class="fas fa-search" id="search-icon-toggle"></i>
+                    <input type="text" id="search-input" placeholder="Search projects..." class="expandable-search">
+                </div>
+                <div class="header-actions">
+                    <a href="#projects-section" class="btn-ghost">View Catalog</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title"><span class="rotating-text-wrapper"><span id="rotating-text"
+                        class="rotating-text">Electronics</span></span> Projects</h1>
+            <p class="hero-subtitle">High-end, ready-to-deploy hardware and software solutions. We specialize in <strong style="color: var(--primary-color);">Final Year College Projects</strong>, <strong style="color: var(--primary-color);">Mini Projects</strong>, and <strong style="color: var(--primary-color);">Micro Projects</strong> for engineering students.</p>
+            <div class="hero-buttons" style="margin-top: 30px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                <a href="#projects-section" class="btn-pill btn-large">Explore the Catalog <i class="fas fa-arrow-right"></i></a>
+                <a href="#contact-us-section" class="btn-primary btn-large glass-btn" style="border-radius: 50px;">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="custom-project-section">
+        <div class="container">
+            <div class="custom-project-content">
+                <h2>Have a Unique Project Idea?</h2>
+                <p>Don't see what you're looking for? Bring your own concept, and we'll build it from scratch! Whether it's a completely new invention, a <strong>Final Year College Project</strong>, or a <strong>Mini/Micro Project</strong>, our team will turn your idea into a fully functional reality.</p>
+                <a href="https://wa.me/8590342039?text=Hi!%20I%20have%20a%20custom%20project%20idea.%20Can%20we%20discuss%3F" target="_blank" class="btn-white">Pitch Your Idea <i class="fas fa-lightbulb" style="margin-left: 8px;"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects-section" class="projects-section">
+        <div class="container">
+            <div class="projects-header">
+                <h2>Our Projects</h2>
+                <p id="projects-counter" class="projects-counter">Showing 0 projects</p>
+            </div>
+            <div id="no-results" class="no-results hidden">
+                <i class="fas fa-search-minus"></i>
+                <h3>No projects found</h3>
+                <p>Try adjusting your search terms or tags.</p>
+            </div>
+            <div id="projects-grid" class="projects-grid"></div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card glass-card"><i class="fas fa-microchip"></i>
+                    <h3>Prototyping</h3>
+                    <p>Rapid hardware prototyping from concept to working model.</p>
+                </div>
+                <div class="service-card glass-card"><i class="fas fa-file-alt"></i>
+                    <h3>Documentation</h3>
+                    <p>Comprehensive IEEE-format reports and schematics.</p>
+                </div>
+                <div class="service-card glass-card"><i class="fas fa-brain"></i>
+                    <h3>ML Integration</h3>
+                    <p>Custom AI/ML models deployed on edge devices.</p>
+                </div>
+                <div class="service-card glass-card"><i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Viva Support</h3>
+                    <p>Mock vivas and complete technical explanations for your college evaluations.</p>
+                </div>
+                <div class="service-card glass-card"><i class="fas fa-tools"></i>
+                    <h3>Hardware Assembly</h3>
+                    <p>Professional circuit design and rigid assembly.</p>
+                </div>
+                <div class="service-card glass-card"><i class="fas fa-cloud"></i>
+                    <h3>IoT Cloud Setup</h3>
+                    <p>End-to-end dashboard setup and cloud connectivity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="guarantees-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="guarantees-grid">
+                <div class="block glass-card"><i class="fas fa-check-circle"></i>
+                    <h3>100% Working Prototype</h3>
+                    <p>Guaranteed functional projects delivered to specifications.</p>
+                </div>
+                <div class="block glass-card"><i class="fas fa-shipping-fast"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Flexible 1-week and 2-week priority turnaround options.</p>
+                </div>
+                <div class="block glass-card"><i class="fas fa-book"></i>
+                    <h3>Full Docs & Viva Support</h3>
+                    <p>We prepare you to present and defend your project confidently.</p>
+                </div>
+                <div class="block glass-card"><i class="fas fa-headset"></i>
+                    <h3>Post-Project Support</h3>
+                    <p>Continuous assistance even after the delivery of the project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-us-section" class="contact-us-section glass-section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <a href="https://www.linkedin.com/in/ananthakrishnan754" target="_blank" class="contact-card glass-card">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with us</p>
+                </a>
+                <a href="https://instagram.com/shutter_bug07" target="_blank" class="contact-card glass-card">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p>@shutter_bug07</p>
+                </a>
+                <a href="tel:8590342039" class="contact-card glass-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>8590342039</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 buildyourprojects. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="mobile-search-fab" id="mobile-search-fab">
+        <i class="fas fa-search"></i>
+        <span>Search</span>
+    </div>
+
+    <a href="https://wa.me/8590342039" target="_blank" class="floating-whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <script src="script.js"></script>
+</body>
+
+</html>
