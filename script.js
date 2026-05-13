@@ -51,7 +51,7 @@ let courses = [
         title: "Python-to-Placement: The 30-Day Logic Sprint", 
         tags: ["Placement", "Python", "Logic Building"], 
         description: "Master the language of the AI era by focusing on career-critical skills. This track skips abstract theory to focus on solving high-frequency coding rounds. You will build logic for placement exams and automate real-world engineering tasks through daily hands-on practice.", 
-        price: 799, 
+        price: 899, 
         startDate: "Immediate", 
         images: ["images/course 1.jpg"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
@@ -73,7 +73,7 @@ let courses = [
         title: "AI-Powered Developer: 10x Productivity with Advanced Prompting", 
         tags: ["AI", "Prompting", "Productivity"], 
         description: "Stop \"chatting\" and start \"engineering\". This course teaches you to leverage advanced prompting and context engineering to code, debug, and document complex projects with professional speed. Transform from a standard student into a high-efficiency developer using AI as a professional multiplier.", 
-        price: 799, 
+        price: 499, 
         startDate: "Immediate", 
         images: ["images/course 2.jpg"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
@@ -95,7 +95,7 @@ let courses = [
         title: "Build-a-Bot: Practical Generative AI for Engineers", 
         tags: ["Generative AI", "LLM APIs", "Agents"], 
         description: "A hands-on dive into Gen-AI without intimidating math. Focus on building functional tools, from AI-powered PDF readers to autonomous digital agents. Learn to integrate LLM APIs into applications, moving from simple prompting to full-scale AI orchestration.", 
-        price: 799, 
+        price: 999, 
         startDate: "Immediate", 
         images: ["images/course 3.jpg"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
@@ -117,7 +117,7 @@ let courses = [
         title: "Smart-Systems Masterclass: From ESP32 to Robotics", 
         tags: ["ESP32", "Robotics", "ROS 2", "IoT"], 
         description: "Master the bridge between the digital and physical worlds. This course takes you from basic ESP32 sensor integration to building autonomous mobile robots. Gain practical experience in hardware-to-cloud communication, BLE/Wi-Fi integration, and ROS 2 fundamentals for India's surging robotics sector.", 
-        price: 799, 
+        price: 1299, 
         startDate: "Immediate", 
         images: ["images/course 4.jpg"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
