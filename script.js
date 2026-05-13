@@ -2,12 +2,12 @@
 
 // Firebase Configuration (Replace with actual config)
 const firebaseConfig = {
-    apiKey: "AIzaSyPlaceholderKey123",
-    authDomain: "your-project-id.firebaseapp.com",
-    projectId: "your-project-id",
-    storageBucket: "your-project-id.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abcdef123456"
+    apiKey: "YOUR_FIREBASE_API_KEY", // Will be automatically inferred or securely supplied by client SDK
+    authDomain: "buildyourprojects-f3983.firebaseapp.com",
+    projectId: "buildyourprojects-f3983",
+    storageBucket: "buildyourprojects-f3983.appspot.com",
+    messagingSenderId: "702758316685",
+    appId: "1:702758316685:web:placeholder_app_id"
 };
 
 // Initialize Firebase
@@ -47,12 +47,12 @@ let projects = [
 ];
 
 let courses = [
-    { 
-        title: "Python-to-Placement: The 30-Day Logic Sprint", 
-        tags: ["Placement", "Python", "Logic Building"], 
-        description: "Master the language of the AI era by focusing on career-critical skills. This track skips abstract theory to focus on solving high-frequency coding rounds. You will build logic for placement exams and automate real-world engineering tasks through daily hands-on practice.", 
-        price: 899, 
-        startDate: "Immediate", 
+    {
+        title: "Python-to-Placement: The 30-Day Logic Sprint",
+        tags: ["Placement", "Python", "Logic Building"],
+        description: "Master the language of the AI era by focusing on career-critical skills. This track skips abstract theory to focus on solving high-frequency coding rounds. You will build logic for placement exams and automate real-world engineering tasks through daily hands-on practice.",
+        price: 899,
+        startDate: "Immediate",
         images: ["images/course 1.png"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
@@ -66,15 +66,15 @@ let courses = [
             <div class="capstone-box" style="margin-top: 16px; background-color: var(--bg-white); border-left: 4px solid var(--primary-color); padding: 12px;">
                 <strong>Outcome:</strong> Build solid placement logic and automate real-world engineering tasks.
             </div>
-        </div>`, 
-        isFeatured: true 
+        </div>`,
+        isFeatured: true
     },
-    { 
-        title: "AI-Powered Developer: 10x Productivity with Advanced Prompting", 
-        tags: ["AI", "Prompting", "Productivity"], 
-        description: "Stop \"chatting\" and start \"engineering\". This course teaches you to leverage advanced prompting and context engineering to code, debug, and document complex projects with professional speed. Transform from a standard student into a high-efficiency developer using AI as a professional multiplier.", 
-        price: 499, 
-        startDate: "Immediate", 
+    {
+        title: "AI-Powered Developer: 10x Productivity with Advanced Prompting",
+        tags: ["AI", "Prompting", "Productivity"],
+        description: "Stop \"chatting\" and start \"engineering\". This course teaches you to leverage advanced prompting and context engineering to code, debug, and document complex projects with professional speed. Transform from a standard student into a high-efficiency developer using AI as a professional multiplier.",
+        price: 499,
+        startDate: "Immediate",
         images: ["images/course 2.png"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
@@ -88,15 +88,15 @@ let courses = [
             <div class="capstone-box" style="margin-top: 16px; background-color: var(--bg-white); border-left: 4px solid var(--primary-color); padding: 12px;">
                 <strong>Outcome:</strong> Code, debug, and ship applications at 10x professional developer speed.
             </div>
-        </div>`, 
-        isFeatured: true 
+        </div>`,
+        isFeatured: true
     },
-    { 
-        title: "Build-a-Bot: Practical Generative AI for Engineers", 
-        tags: ["Generative AI", "LLM APIs", "Agents"], 
-        description: "A hands-on dive into Gen-AI without intimidating math. Focus on building functional tools, from AI-powered PDF readers to autonomous digital agents. Learn to integrate LLM APIs into applications, moving from simple prompting to full-scale AI orchestration.", 
-        price: 999, 
-        startDate: "Immediate", 
+    {
+        title: "Build-a-Bot: Practical Generative AI for Engineers",
+        tags: ["Generative AI", "LLM APIs", "Agents"],
+        description: "A hands-on dive into Gen-AI without intimidating math. Focus on building functional tools, from AI-powered PDF readers to autonomous digital agents. Learn to integrate LLM APIs into applications, moving from simple prompting to full-scale AI orchestration.",
+        price: 999,
+        startDate: "Immediate",
         images: ["images/course 3.png"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
@@ -110,15 +110,15 @@ let courses = [
             <div class="capstone-box" style="margin-top: 16px; background-color: var(--bg-white); border-left: 4px solid var(--primary-color); padding: 12px;">
                 <strong>Outcome:</strong> Build and integrate autonomous AI agents and intelligent micro-tools.
             </div>
-        </div>`, 
-        isFeatured: true 
+        </div>`,
+        isFeatured: true
     },
-    { 
-        title: "Smart-Systems Masterclass: From ESP32 to Robotics", 
-        tags: ["ESP32", "Robotics", "ROS 2", "IoT"], 
-        description: "Master the bridge between the digital and physical worlds. This course takes you from basic ESP32 sensor integration to building autonomous mobile robots. Gain practical experience in hardware-to-cloud communication, BLE/Wi-Fi integration, and ROS 2 fundamentals for India's surging robotics sector.", 
-        price: 1299, 
-        startDate: "Immediate", 
+    {
+        title: "Smart-Systems Masterclass: From ESP32 to Robotics",
+        tags: ["ESP32", "Robotics", "ROS 2", "IoT"],
+        description: "Master the bridge between the digital and physical worlds. This course takes you from basic ESP32 sensor integration to building autonomous mobile robots. Gain practical experience in hardware-to-cloud communication, BLE/Wi-Fi integration, and ROS 2 fundamentals for India's surging robotics sector.",
+        price: 1299,
+        startDate: "Immediate",
         images: ["images/course 4.png"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
@@ -132,8 +132,8 @@ let courses = [
             <div class="capstone-box" style="margin-top: 16px; background-color: var(--bg-white); border-left: 4px solid var(--primary-color); padding: 12px;">
                 <strong>Outcome:</strong> Master sensor integration, wireless IoT bridging, and autonomous ROS 2 robotics.
             </div>
-        </div>`, 
-        isFeatured: true 
+        </div>`,
+        isFeatured: true
     }
 ];
 
@@ -158,8 +158,8 @@ const pastelColors = ['#FFE5E5', '#E5FFEA', '#E5F0FF', '#FFF3E5', '#F5E5FF', '#E
 function getInitials(title) {
     const words = title.split(' ');
     let initials = '';
-    for(let i=0; i<Math.min(2, words.length); i++){
-        if(words[i].length > 0 && words[i][0].match(/[A-Za-z0-9]/)) {
+    for (let i = 0; i < Math.min(2, words.length); i++) {
+        if (words[i].length > 0 && words[i][0].match(/[A-Za-z0-9]/)) {
             initials += words[i][0].toUpperCase();
         }
     }
@@ -170,15 +170,15 @@ function getInitials(title) {
 function renderCards(data, containerId, type = "project") {
     const grid = document.getElementById(containerId);
     if (!grid) return;
-    
+
     grid.innerHTML = '';
-    
+
     data.forEach((item, index) => {
         const card = document.createElement('div');
         card.className = 'project-card glass-card';
         const color = pastelColors[index % pastelColors.length];
         const tagsHtml = item.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
-        
+
         let imageHtml = '';
         if (type === "project") {
             const initials = getInitials(item.title);
@@ -252,35 +252,35 @@ function renderCards(data, containerId, type = "project") {
 // Page Specific Logic
 document.addEventListener('DOMContentLoaded', async () => {
     const pageId = document.body.id;
-    
+
     // Always try to load data from Firestore first
     await loadDataFromFirestore();
 
     if (pageId === 'landing-page') {
         const featuredProjects = projects.filter(p => p.isFeatured).slice(0, 4);
         renderCards(featuredProjects, 'featured-projects-grid', 'project');
-        
+
         const featuredCourses = courses.filter(c => c.isFeatured).slice(0, 4);
         renderCards(featuredCourses, 'featured-courses-grid', 'course');
-        
+
         initRotatingText();
-    } 
+    }
     else if (pageId === 'projects-page') {
         renderCards(projects, 'projects-grid', 'project');
         document.getElementById('projects-counter').textContent = `Showing ${projects.length} projects`;
-        
+
         const searchInput = document.getElementById('search-input');
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
                 const term = e.target.value.toLowerCase();
-                const filtered = projects.filter(p => 
-                    p.title.toLowerCase().includes(term) || 
-                    p.description.toLowerCase().includes(term) || 
+                const filtered = projects.filter(p =>
+                    p.title.toLowerCase().includes(term) ||
+                    p.description.toLowerCase().includes(term) ||
                     p.tags.some(t => t.toLowerCase().includes(term))
                 );
                 renderCards(filtered, 'projects-grid', 'project');
                 document.getElementById('projects-counter').textContent = `Showing ${filtered.length} projects`;
-                
+
                 const noResults = document.getElementById('no-results');
                 if (filtered.length === 0) {
                     noResults.classList.remove('hidden');
@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     else if (pageId === 'courses-page') {
         renderCards(courses, 'courses-grid', 'course');
         initEnrollmentModal();
-        
+
         // Check if redirected to open enrollment modal
         const urlParams = new URLSearchParams(window.location.search);
         const enrollTitle = urlParams.get('enroll');
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
     }
-    
+
     // Check for UroPay success redirect URL globally
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('success') === 'true' || urlParams.get('status') === 'success' || window.location.href.includes('thank-you')) {
@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             successScreen.classList.remove('hidden');
         }
     }
-    
+
     // Bubble cursor effect
     initBubbleCursor();
 });
@@ -333,9 +333,9 @@ function openEnrollmentModal(title, price) {
         return;
     }
     const course = courses.find(c => c.title === title);
-    
+
     document.getElementById('modal-course-title').textContent = title;
-    
+
     if (course) {
         document.getElementById('modal-course-date').textContent = `Starts on: ${course.startDate}`;
         document.getElementById('course-syllabus-container').innerHTML = course.syllabus;
@@ -347,14 +347,14 @@ function openEnrollmentModal(title, price) {
         document.getElementById('modal-course-date').style.display = 'none';
         document.getElementById('modal-subtitle-text').style.display = 'none';
     }
-    
+
     document.getElementById('pay-amount').textContent = `- ₹${price}`;
     document.getElementById('selected-course-name').value = title;
     document.getElementById('selected-course-price').value = price;
-    
+
     document.getElementById('success-screen').classList.add('hidden');
     document.getElementById('enrollment-form-container').classList.add('hidden');
-    
+
     document.getElementById('enrollment-modal').classList.remove('hidden');
 }
 
@@ -363,25 +363,25 @@ function initEnrollmentModal() {
     const closeBtn = document.getElementById('close-modal');
     const form = document.getElementById('enrollment-form');
     const showFormBtn = document.getElementById('show-form-btn');
-    
+
     showFormBtn.addEventListener('click', () => {
         document.getElementById('course-details-section').classList.add('hidden');
         document.getElementById('enrollment-form-container').classList.remove('hidden');
     });
-    
+
     closeBtn.addEventListener('click', () => {
         modal.classList.add('hidden');
     });
-    
+
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.classList.add('hidden');
         }
     });
-    
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const phone = document.getElementById('phone').value;
@@ -389,7 +389,7 @@ function initEnrollmentModal() {
         const branch = document.getElementById('branch').value;
         const courseName = document.getElementById('selected-course-name').value;
         const amount = parseInt(document.getElementById('selected-course-price').value);
-        
+
         const payBtn = document.getElementById('pay-btn');
         const originalBtnText = payBtn.innerHTML;
         payBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
@@ -402,7 +402,7 @@ function initEnrollmentModal() {
             // Render the Secure UPI Checkout interface instantly for optimal UI responsiveness
             const formContainer = document.getElementById('enrollment-form-container');
             const uropayBtnId = uropayConfig.buttons[courseName] || "default_button_id";
-            
+
             // Execute Firestore Record creation asynchronously in the background without blocking the UI
             db.collection("course_registrations").add({
                 name, email, phone, college, branch, courseName,
@@ -440,7 +440,7 @@ function initEnrollmentModal() {
                     </p>
                 </div>
             `;
-            
+
             // Trigger UroPay embed script scan if present on page
             if (window.uropayEmbed && typeof window.uropayEmbed.init === 'function') {
                 window.uropayEmbed.init();
@@ -461,7 +461,7 @@ function initRotatingText() {
     let wordIndex = 0;
     const rotatingTextEl = document.getElementById('rotating-text');
     const wrapper = document.querySelector('.rotating-text-wrapper');
-    
+
     if (rotatingTextEl && wrapper) {
         wrapper.style.width = `${rotatingTextEl.offsetWidth}px`;
         setInterval(() => {
@@ -483,7 +483,7 @@ function initRotatingText() {
 
 function initBubbleCursor() {
     document.addEventListener('mousemove', (e) => {
-        if (Math.random() < 0.1) { 
+        if (Math.random() < 0.1) {
             const bubble = document.createElement('div');
             bubble.className = 'cursor-bubble';
             bubble.style.left = `${e.clientX}px`;
