@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | BuildYourProjects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Inter:wght@400;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="admin-page">
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <img src="images/logo.png" alt="buildyourprojects logo" class="logo-image" onerror="this.src='https://via.placeholder.com/40'">
+                <h1>buildyourprojects <span style="font-size: 0.8rem; background: var(--primary-color); color: white; padding: 2px 8px; border-radius: 4px; vertical-align: middle;">Admin</span></h1>
+            </a>
+            <div class="header-right">
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="courses.html">Courses</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-container container">
+        <div class="admin-tabs">
+            <div class="admin-tab active" data-tab="registrations">Registrations</div>
+            <div class="admin-tab" data-tab="manage-projects">Manage Projects</div>
+            <div class="admin-tab" data-tab="manage-courses">Manage Courses</div>
+        </div>
+
+        <!-- Registrations Tab -->
+        <section id="tab-registrations" class="admin-tab-content">
+            <div class="admin-header">
+                <h2>Course Registrations</h2>
+                <button id="refresh-registrations" class="btn-ghost"><i class="fas fa-sync-alt"></i> Refresh</button>
+            </div>
+            <div class="admin-card">
+                <div class="admin-table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Email/Phone</th>
+                                <th>College</th>
+                                <th>Course</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="registrations-table-body">
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 40px;">Loading registrations...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Tab -->
+        <section id="tab-manage-projects" class="admin-tab-content hidden">
+            <div class="admin-header">
+                <h2>Manage Projects</h2>
+                <button id="add-project-btn" class="btn-primary"><i class="fas fa-plus"></i> Add New Project</button>
+            </div>
+            <div class="admin-card">
+                <div id="admin-projects-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+                    <!-- Projects will be listed here with delete buttons -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Tab -->
+        <section id="tab-manage-courses" class="admin-tab-content hidden">
+            <div class="admin-header">
+                <h2>Manage Courses</h2>
+                <button id="add-course-btn" class="btn-primary"><i class="fas fa-plus"></i> Add New Course</button>
+            </div>
+            <div class="admin-card">
+                <div id="admin-courses-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+                    <!-- Courses will be listed here with delete buttons -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add Project Modal -->
+    <div id="project-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-card">
+            <button class="modal-close"><i class="fas fa-times"></i></button>
+            <h2 style="margin-bottom: 20px;">Add New Project</h2>
+            <form id="add-project-form" class="admin-form">
+                <div class="form-group full">
+                    <label>Project Title</label>
+                    <input type="text" id="proj-title" required placeholder="e.g. AI Smart Dustbin">
+                </div>
+                <div class="form-group full">
+                    <label>Tags (comma separated)</label>
+                    <input type="text" id="proj-tags" placeholder="e.g. IoT, ESP32, Python">
+                </div>
+                <div class="form-group full">
+                    <label>Description</label>
+                    <textarea id="proj-desc" rows="4" style="width: 100%; border-radius: 8px; padding: 10px; border: 1px solid #ddd;" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="text" id="proj-price" placeholder="e.g. ₹15,000">
+                </div>
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input type="text" id="proj-image" placeholder="images/proX.jpg">
+                </div>
+                <button type="submit" class="btn-primary full" style="grid-column: span 2;">Save Project</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 buildyourprojects. Admin Panel.</p>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

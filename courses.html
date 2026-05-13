@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | BuildYourProjects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Inter:wght@400;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="courses-page">
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <img src="images/logo.png" alt="buildyourprojects logo" class="logo-image" onerror="this.src='https://via.placeholder.com/40'">
+                <h1>buildyourprojects</h1>
+            </a>
+            <div class="header-right">
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="courses.html" style="font-weight: bold; color: var(--primary-color);">Courses</a>
+                    <a href="index.html#contact-us-section">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 80px 24px 40px; background-color: var(--bg-white);">
+        <div class="hero-content">
+            <h1 class="hero-title">Start Your Tech <span style="color: var(--primary-color);">Journey</span></h1>
+            <p class="hero-subtitle">Learn Python, AI, Web, and Emerging Tech with hands-on projects</p>
+        </div>
+    </section>
+
+    <section id="courses-section" class="projects-section" style="padding-top: 20px;">
+        <div class="container">
+            <div class="projects-header">
+                <h2>Our Courses</h2>
+            </div>
+            <div id="courses-grid" class="projects-grid"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 buildyourprojects. All rights reserved. | <a href="admin.html" style="color: #4B5563; font-size: 0.8rem;">Admin</a></p>
+        </div>
+    </footer>
+
+    <!-- Enrollment Modal -->
+    <div id="enrollment-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-card modal-large">
+            <button id="close-modal" class="modal-close"><i class="fas fa-times"></i></button>
+            <h2 id="modal-course-title" style="font-size: 2rem; margin-bottom: 8px;">Course Name</h2>
+            <p id="modal-course-date" class="modal-subtitle" style="color: var(--primary-color); font-weight: bold; margin-bottom: 8px; font-size: 1.1rem;">Starts on: Date</p>
+            <p class="modal-subtitle" id="modal-subtitle-text" style="margin-bottom: 24px;">Review the syllabus below.</p>
+            
+            <div id="course-details-section">
+                <div id="course-syllabus-container" style="max-height: 50vh; overflow-y: auto; background: transparent; padding: 0; margin-bottom: 24px; font-size: 0.95rem;">
+                    <!-- Syllabus table injected here -->
+                </div>
+                <button id="show-form-btn" class="btn-primary btn-large" style="width: 100%;"><i class="fas fa-user-graduate"></i> Enroll Now</button>
+            </div>
+
+            <div id="enrollment-form-container" class="hidden">
+                <form id="enrollment-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required placeholder="9876543210" pattern="[0-9]{10}">
+                </div>
+                <div class="form-group">
+                    <label for="college">College / University</label>
+                    <input type="text" id="college" required placeholder="XYZ Engineering College">
+                </div>
+                <div class="form-group">
+                    <label for="branch">Branch / Specialization</label>
+                    <input type="text" id="branch" required placeholder="Computer Science">
+                </div>
+                
+                <input type="hidden" id="selected-course-name">
+                <input type="hidden" id="selected-course-price">
+                
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 16px; font-size: 1.1rem;" id="pay-btn">Proceed to Pay <span id="pay-amount"></span></button>
+                </form>
+            </div>
+
+            <div id="success-screen" class="hidden" style="text-align: center; padding: 20px 0;">
+                <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--whatsapp-green); margin-bottom: 20px;"></i>
+                <h2 style="margin-bottom: 10px;">🎉 You're Enrolled!</h2>
+                <p style="margin-bottom: 24px; color: var(--text-secondary);">Your payment was successful. Please join the WhatsApp group as further details and dates will be shared there.</p>
+                <a href="#" id="whatsapp-join-btn" target="_blank" class="btn-whatsapp" style="display: inline-block; width: auto; padding: 12px 32px; font-size: 1.1rem;">Join WhatsApp Group</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.uropay.me/uropay-embed.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <a href="https://wa.me/919447452039" target="_blank" class="floating-whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <script src="script.js"></script>
+</body>
+</html>
