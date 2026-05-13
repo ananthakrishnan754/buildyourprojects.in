@@ -2,12 +2,14 @@
 
 // Firebase Configuration (Replace with actual config)
 const firebaseConfig = {
-    apiKey: "YOUR_FIREBASE_API_KEY", // Will be automatically inferred or securely supplied by client SDK
+    apiKey: "AIzaSyDgtQs0mreNT7uSFVrhaPcy_YUeqgO_F8Q",
     authDomain: "buildyourprojects-f3983.firebaseapp.com",
+    databaseURL: "https://buildyourprojects-f3983-default-rtdb.firebaseio.com",
     projectId: "buildyourprojects-f3983",
-    storageBucket: "buildyourprojects-f3983.appspot.com",
+    storageBucket: "buildyourprojects-f3983.firebasestorage.app",
     messagingSenderId: "702758316685",
-    appId: "1:702758316685:web:placeholder_app_id"
+    appId: "1:702758316685:web:4687d58580ab41a2a210c4",
+    measurementId: "G-F6RVLC6XEB"
 };
 
 // Initialize Firebase
