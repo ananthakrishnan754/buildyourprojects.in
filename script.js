@@ -53,7 +53,7 @@ let courses = [
         description: "Master the language of the AI era by focusing on career-critical skills. This track skips abstract theory to focus on solving high-frequency coding rounds. You will build logic for placement exams and automate real-world engineering tasks through daily hands-on practice.", 
         price: 899, 
         startDate: "Immediate", 
-        images: ["images/course 1.jpg"],
+        images: ["images/course 1.png"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
                 <h4 style="color: var(--primary-color); margin-bottom: 4px; font-size: 1.05rem;"><i class="fas fa-clock"></i> Duration</h4>
@@ -75,7 +75,7 @@ let courses = [
         description: "Stop \"chatting\" and start \"engineering\". This course teaches you to leverage advanced prompting and context engineering to code, debug, and document complex projects with professional speed. Transform from a standard student into a high-efficiency developer using AI as a professional multiplier.", 
         price: 499, 
         startDate: "Immediate", 
-        images: ["images/course 2.jpg"],
+        images: ["images/course 2.png"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
                 <h4 style="color: var(--primary-color); margin-bottom: 4px; font-size: 1.05rem;"><i class="fas fa-clock"></i> Duration</h4>
@@ -97,7 +97,7 @@ let courses = [
         description: "A hands-on dive into Gen-AI without intimidating math. Focus on building functional tools, from AI-powered PDF readers to autonomous digital agents. Learn to integrate LLM APIs into applications, moving from simple prompting to full-scale AI orchestration.", 
         price: 999, 
         startDate: "Immediate", 
-        images: ["images/course 3.jpg"],
+        images: ["images/course 3.png"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
                 <h4 style="color: var(--primary-color); margin-bottom: 4px; font-size: 1.05rem;"><i class="fas fa-clock"></i> Duration</h4>
@@ -119,7 +119,7 @@ let courses = [
         description: "Master the bridge between the digital and physical worlds. This course takes you from basic ESP32 sensor integration to building autonomous mobile robots. Gain practical experience in hardware-to-cloud communication, BLE/Wi-Fi integration, and ROS 2 fundamentals for India's surging robotics sector.", 
         price: 1299, 
         startDate: "Immediate", 
-        images: ["images/course 4.jpg"],
+        images: ["images/course 4.png"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
                 <h4 style="color: var(--primary-color); margin-bottom: 4px; font-size: 1.05rem;"><i class="fas fa-clock"></i> Duration</h4>
@@ -394,6 +394,9 @@ function initEnrollmentModal() {
         const originalBtnText = payBtn.innerHTML;
         payBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
         payBtn.disabled = true;
+
+        // Ensure success screen is strictly hidden until actual payment confirmation redirect occurs
+        document.getElementById('success-screen')?.classList.add('hidden');
 
         try {
             // Render the Secure UPI Checkout interface instantly for optimal UI responsiveness
