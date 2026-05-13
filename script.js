@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // Check for UroPay success redirect URL globally
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === 'true' || window.location.href.includes('thank-you')) {
+    if (urlParams.get('success') === 'true' || urlParams.get('status') === 'success' || window.location.href.includes('thank-you')) {
         const successScreen = document.getElementById('success-screen');
         const modal = document.getElementById('enrollment-modal');
         if (successScreen && modal) {
@@ -317,8 +317,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('course-details-section')?.classList.add('hidden');
             document.getElementById('enrollment-form-container')?.classList.add('hidden');
             successScreen.classList.remove('hidden');
-            const waBtn = document.getElementById('whatsapp-join-btn');
-            if (waBtn) waBtn.href = "https://chat.whatsapp.com/invite-link";
         }
     }
     
@@ -398,17 +396,18 @@ function initEnrollmentModal() {
         payBtn.disabled = true;
 
         try {
-            // 1. Write Initial Record to Firestore (Pending)
-            const docRef = await db.collection("course_registrations").add({
-                name, email, phone, college, branch, courseName,
-                paymentStatus: "pending",
-                createdAt: firebase.firestore.FieldValue.serverTimestamp()
-            });
-
-            // 2. Display Secure UPI Payment via UroPay
+            // Render the Secure UPI Checkout interface instantly for optimal UI responsiveness
             const formContainer = document.getElementById('enrollment-form-container');
             const uropayBtnId = uropayConfig.buttons[courseName] || "default_button_id";
             
+            // Execute Firestore Record creation asynchronously in the background without blocking the UI
+            db.collection("course_registrations").add({
+                name, email, phone, college, branch, courseName,
+                paymentStatus: "pending",
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            }).catch(err => console.warn("Firestore logging deferred:", err));
+
+            // Display Secure UPI Payment via UroPay immediately
             formContainer.innerHTML = `
                 <div style="text-align: center; padding: 24px 16px; background: #ffffff; border-radius: 18px; border: 1px solid #eaeaea; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
                     <i class="fas fa-shield-check" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 16px; display: block;"></i>
