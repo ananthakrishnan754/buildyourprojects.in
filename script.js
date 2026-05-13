@@ -316,6 +316,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const modal = document.getElementById('enrollment-modal');
         if (successScreen && modal) {
             modal.classList.remove('hidden');
+            document.querySelector('.mobile-pill-nav')?.classList.add('hidden');
             document.getElementById('course-details-section')?.classList.add('hidden');
             document.getElementById('enrollment-form-container')?.classList.add('hidden');
             successScreen.classList.remove('hidden');
@@ -358,6 +359,7 @@ function openEnrollmentModal(title, price) {
     document.getElementById('enrollment-form-container').classList.add('hidden');
 
     document.getElementById('enrollment-modal').classList.remove('hidden');
+    document.querySelector('.mobile-pill-nav')?.classList.add('hidden');
 }
 
 function initEnrollmentModal() {
@@ -373,11 +375,13 @@ function initEnrollmentModal() {
 
     closeBtn.addEventListener('click', () => {
         modal.classList.add('hidden');
+        document.querySelector('.mobile-pill-nav')?.classList.remove('hidden');
     });
 
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.classList.add('hidden');
+            document.querySelector('.mobile-pill-nav')?.classList.remove('hidden');
         }
     });
 

@@ -109,7 +109,6 @@ a { text-decoration: none; color: var(--primary-color); transition: var(--transi
 .floating-whatsapp { position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp-green); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 2rem; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); z-index: 100; transition: var(--transition); }
 .floating-whatsapp:hover { transform: scale(1.1); background-color: var(--whatsapp-hover); color: white; box-shadow: 0 6px 14px rgba(37, 211, 102, 0.4); }
 
-.mobile-search-fab { display: none; }
 .contact-us-section { padding: 80px 0; background-color: var(--bg-white); }
 .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
 .contact-card { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px; text-align: center; color: var(--text-primary); transition: var(--transition); text-decoration: none; border-radius: var(--radius); }
@@ -145,7 +144,7 @@ body { background-color: #fbfbfd; background-attachment: fixed; }
     .logo h1 { font-size: 1.4rem; text-align: center; }
     .header-right { position: absolute; right: 24px; }
     .header .nav-links { display: none !important; }
-    .mobile-search-fab { display: flex; align-items: center; justify-content: center; position: fixed; bottom: 95px; left: 50%; transform: translateX(-50%); width: 80%; max-width: 350px; padding: 14px 24px; border-radius: 50px; z-index: 1000; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.1rem; cursor: pointer; gap: 8px; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.8); color: var(--primary-color); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); }
+
     .search-icon-wrapper { display: none; }
 }
 
