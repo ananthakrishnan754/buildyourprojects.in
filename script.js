@@ -20,10 +20,10 @@ const uropayConfig = {
     environment: "LIVE", // LIVE or TEST
     // Map course titles to specific UroPay Button IDs
     buttons: {
-        "Python-to-Placement: The 30-Day Logic Sprint": "INDIA572069",
-        "AI-Powered Developer: 10x Productivity with Advanced Prompting": "CHARLIE616485",
-        "Build-a-Bot: Practical Generative AI for Engineers": "ROMEO655450",
-        "Smart-Systems Masterclass: From ESP32 to Robotics": "VICTOR836705"
+        "Python-to-Placement: The 30-Day Logic Sprint": "TANGO666629",
+        "AI-Powered Developer: 10x Productivity with Advanced Prompting": "PAPA633452",
+        "Build-a-Bot: Practical Generative AI for Engineers": "ECHO694626",
+        "Smart-Systems Masterclass: From ESP32 to Robotics": "YANKEE726483"
     },
     // Fallback/Universal payment link if button ID is not set
     defaultPaymentLink: "https://app.uropay.me/pay/your-payment-link"
