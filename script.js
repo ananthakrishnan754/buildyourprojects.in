@@ -53,6 +53,7 @@ let courses = [
         description: "Master the language of the AI era by focusing on career-critical skills. This track skips abstract theory to focus on solving high-frequency coding rounds. You will build logic for placement exams and automate real-world engineering tasks through daily hands-on practice.", 
         price: 799, 
         startDate: "Immediate", 
+        images: ["images/course 1.jpg"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
                 <h4 style="color: var(--primary-color); margin-bottom: 4px; font-size: 1.05rem;"><i class="fas fa-clock"></i> Duration</h4>
@@ -74,6 +75,7 @@ let courses = [
         description: "Stop \"chatting\" and start \"engineering\". This course teaches you to leverage advanced prompting and context engineering to code, debug, and document complex projects with professional speed. Transform from a standard student into a high-efficiency developer using AI as a professional multiplier.", 
         price: 799, 
         startDate: "Immediate", 
+        images: ["images/course 2.jpg"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
                 <h4 style="color: var(--primary-color); margin-bottom: 4px; font-size: 1.05rem;"><i class="fas fa-clock"></i> Duration</h4>
@@ -95,6 +97,7 @@ let courses = [
         description: "A hands-on dive into Gen-AI without intimidating math. Focus on building functional tools, from AI-powered PDF readers to autonomous digital agents. Learn to integrate LLM APIs into applications, moving from simple prompting to full-scale AI orchestration.", 
         price: 799, 
         startDate: "Immediate", 
+        images: ["images/course 3.jpg"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
                 <h4 style="color: var(--primary-color); margin-bottom: 4px; font-size: 1.05rem;"><i class="fas fa-clock"></i> Duration</h4>
@@ -116,6 +119,7 @@ let courses = [
         description: "Master the bridge between the digital and physical worlds. This course takes you from basic ESP32 sensor integration to building autonomous mobile robots. Gain practical experience in hardware-to-cloud communication, BLE/Wi-Fi integration, and ROS 2 fundamentals for India's surging robotics sector.", 
         price: 799, 
         startDate: "Immediate", 
+        images: ["images/course 4.jpg"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
                 <h4 style="color: var(--primary-color); margin-bottom: 4px; font-size: 1.05rem;"><i class="fas fa-clock"></i> Duration</h4>
@@ -192,7 +196,12 @@ function renderCards(data, containerId, type = "project") {
                 "Smart-Systems Masterclass: From ESP32 to Robotics": "fas fa-microchip"
             };
             const icon = iconMap[item.title] || "fas fa-laptop-code";
-            imageHtml = `<div class="project-image-placeholder" style="background-color: ${color}; color: var(--primary-color);"><i class="${icon}"></i></div>`;
+            if (item.images && item.images.length > 0) {
+                const fallbackHtml = `<div class="project-image-placeholder" style="background-color: ${color}; color: var(--primary-color);"><i class="${icon}"></i></div>`;
+                imageHtml = `<div class="project-slider"><img src="${item.images[0]}" alt="${item.title}" style="width:100%; height:100%; object-fit:cover;" onerror="this.parentElement.outerHTML=\`${fallbackHtml}\`"></div>`;
+            } else {
+                imageHtml = `<div class="project-image-placeholder" style="background-color: ${color}; color: var(--primary-color);"><i class="${icon}"></i></div>`;
+            }
         }
 
         let actionHtml = '';
@@ -401,30 +410,31 @@ function initEnrollmentModal() {
             const uropayBtnId = uropayConfig.buttons[courseName] || "default_button_id";
             
             formContainer.innerHTML = `
-                <div style="text-align: center; padding: 16px 0;">
-                    <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 12px;"></i>
-                    <h3 style="margin-bottom: 8px;">Secure UPI Payment via UroPay</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
-                        Click the button below to complete your payment of <strong>₹${amount}</strong> securely using any UPI app (GPay, PhonePe, Paytm).
+                <div style="text-align: center; padding: 24px 16px; background: #ffffff; border-radius: 18px; border: 1px solid #eaeaea; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+                    <i class="fas fa-shield-check" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 16px; display: block;"></i>
+                    <h3 style="margin-bottom: 6px; font-size: 1.3rem; font-weight: 700; color: var(--text-primary);">Secure UPI Checkout</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 24px; line-height: 1.5;">
+                        Complete your payment of <strong style="color: var(--text-primary);">₹${amount}</strong> seamlessly via any supported UPI application.
                     </p>
                     
                     <!-- UroPay Embedded Button / Link -->
-                    <div style="margin-bottom: 20px;">
+                    <div style="margin-bottom: 24px;">
                         <a href="${uropayConfig.defaultPaymentLink}" target="_blank" class="uropay-btn btn-primary btn-large" 
                            data-uropay-api-key="${uropayConfig.apiKey}" 
                            data-uropay-button-id="${uropayBtnId}" 
                            data-uropay-environment="${uropayConfig.environment}" 
                            data-uropay-amount="${amount}"
-                           style="display: inline-block; width: 100%; text-decoration: none; font-weight: bold; box-sizing: border-box;">
+                           style="display: block; width: 100%; text-decoration: none; font-weight: 600; font-family: 'Inter', sans-serif; letter-spacing: -0.3px; border-radius: 14px; box-shadow: 0 4px 12px rgba(37,99,235,0.15);">
                            Pay Now (₹${amount})
                         </a>
                     </div>
 
-                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 8px;">
-                        <i class="fas fa-circle-notch fa-spin" style="color: var(--primary-color); margin-right: 6px;"></i> Awaiting successful payment...
-                    </p>
-                    <p style="font-size: 0.8rem; color: var(--text-secondary);">
-                        You will be automatically redirected to your enrollment confirmation and WhatsApp invite link upon successful completion.
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px;">
+                        <i class="fas fa-circle-notch fa-spin" style="color: var(--primary-color); font-size: 0.9rem;"></i>
+                        <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 500;">Awaiting authorization...</span>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #9CA3AF; line-height: 1.4; margin: 0;">
+                        Securely redirected automatically upon successful completion.
                     </p>
                 </div>
             `;
