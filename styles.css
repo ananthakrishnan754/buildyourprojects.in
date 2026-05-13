@@ -201,6 +201,9 @@ body { background-color: #fbfbfd; background-attachment: fixed; }
 .nav-links a { color: var(--text-primary); font-weight: 500; font-family: 'Inter', sans-serif; transition: var(--transition); }
 .nav-links a:hover { color: var(--primary-color); }
 
+/* Global Utilities */
+.hidden:not(.modal-overlay) { display: none !important; }
+
 /* Modal */
 .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 2000; display: flex; justify-content: center; align-items: center; backdrop-filter: blur(5px); opacity: 1; visibility: visible; transition: all 0.3s ease; }
 .modal-overlay.hidden { opacity: 0; visibility: hidden; }
