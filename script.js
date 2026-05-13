@@ -16,7 +16,7 @@ const db = firebase.firestore();
 
 // UroPay Configuration
 const uropayConfig = {
-    apiKey: "YOUR_UROPAY_API_KEY", // Replace with your Live API Key from UroPay dashboard
+    apiKey: "QG9VLZUVG367GRANJTYN2LERQ1UC44ZP", // Replace with your Live API Key from UroPay dashboard
     environment: "LIVE", // LIVE or TEST
     // Map course titles to specific UroPay Button IDs
     buttons: {
