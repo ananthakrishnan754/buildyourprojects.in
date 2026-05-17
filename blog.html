@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | BuildYourProjects - Final Year Project Ideas & Tech Guides</title>
+    <meta name="description" content="Get free guides on final year engineering projects, IoT, AI, robotics, Python for placements, and tech career tips for engineering students.">
+    <meta name="keywords" content="final year project ideas, engineering blog, IoT tutorials, AI projects, Python guide, robotics, placement preparation">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.buildyourprojects.xyz/blog">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog | BuildYourProjects - Project Ideas & Tech Guides">
+    <meta property="og:description" content="Free guides on final year projects, IoT, AI, robotics, Python for placements, and tech career tips for engineering students.">
+    <meta property="og:url" content="https://www.buildyourprojects.xyz/blog">
+    <meta property="og:image" content="https://www.buildyourprojects.xyz/images/og-image.png">
+    <meta property="og:site_name" content="BuildYourProjects">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | BuildYourProjects">
+    <meta name="twitter:description" content="Free guides on final year projects, IoT, AI, robotics, and tech career tips.">
+    <meta name="twitter:image" content="https://www.buildyourprojects.xyz/images/og-image.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Inter:wght@400;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-card { background: var(--bg-white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-md); transition: var(--transition); display: flex; flex-direction: column; }
+        .blog-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+        .blog-card-image { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--primary-color); border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .blog-card-content { padding: 24px; flex-grow: 1; display: flex; flex-direction: column; }
+        .blog-card-content h3 { font-size: 1.2rem; margin-bottom: 8px; line-height: 1.4; }
+        .blog-meta { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 12px; }
+        .blog-meta span { margin-right: 12px; }
+        .blog-card-content p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 16px; flex-grow: 1; }
+        .blog-card-content .read-more { font-weight: 600; font-size: 0.9rem; color: var(--primary-color); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: var(--transition); }
+        .blog-card-content .read-more:hover { gap: 10px; }
+
+        .blog-post-view { display: none; }
+        .blog-post-view.active { display: block; }
+        .blog-list-view { display: block; }
+        .blog-list-view.hidden { display: none; }
+
+        .blog-post-article { max-width: 800px; margin: 0 auto; }
+        .blog-post-article h1 { font-size: 2.2rem; margin-bottom: 12px; line-height: 1.2; }
+        .blog-post-article .blog-meta { font-size: 0.9rem; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid #E5E7EB; }
+        .blog-post-article h2 { font-size: 1.5rem; margin-top: 32px; margin-bottom: 12px; }
+        .blog-post-article h3 { font-size: 1.2rem; margin-top: 24px; margin-bottom: 8px; }
+        .blog-post-article p { margin-bottom: 16px; color: var(--text-secondary); line-height: 1.8; }
+        .blog-post-article ul, .blog-post-article ol { margin-bottom: 16px; padding-left: 24px; color: var(--text-secondary); line-height: 1.8; }
+        .blog-post-article li { margin-bottom: 8px; }
+        .blog-post-article strong { color: var(--text-primary); }
+        .blog-post-article .highlight-box { background: #EFF6FF; border-left: 4px solid var(--primary-color); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 24px; }
+        .blog-post-article .highlight-box p { margin-bottom: 0; color: var(--text-primary); }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; cursor: pointer; margin-bottom: 32px; color: var(--text-secondary); transition: var(--transition); }
+        .back-btn:hover { color: var(--primary-color); }
+        .blog-post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+        @media (max-width: 768px) {
+            .blog-post-article h1 { font-size: 1.6rem; }
+            .blog-post-article h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body id="blog-page">
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <img src="images/logo.svg" alt="BuildYourProjects" class="logo-image" onerror="this.src='images/logo.png'">
+            </a>
+            <div class="header-right">
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="courses.html">Courses</a>
+                    <a href="blog.html" style="font-weight: bold; color: var(--primary-color);">Blog</a>
+                    <a href="index.html#contact-us-section">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 80px 24px 40px;">
+        <div class="hero-content">
+            <h1 class="hero-title">Project Ideas & <span style="color: var(--primary-color);">Tech Guides</span></h1>
+            <p class="hero-subtitle">Free resources for engineering students — project tutorials, placement tips, and industry insights.</p>
+        </div>
+    </section>
+
+    <section class="projects-section" style="padding-top: 20px;">
+        <div class="container">
+            <!-- Blog list view -->
+            <div id="blog-list-view" class="blog-list-view">
+                <div class="projects-header">
+                    <h2>Latest Posts</h2>
+                    <p id="blog-counter" class="projects-counter"></p>
+                </div>
+                <div id="blog-grid" class="projects-grid"></div>
+            </div>
+
+            <!-- Blog post view -->
+            <div id="blog-post-view" class="blog-post-view">
+                <a class="back-btn" onclick="showBlogList()"><i class="fas fa-arrow-left"></i> Back to all posts</a>
+                <div id="blog-post-content" class="blog-post-article"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 buildyourprojects. All rights reserved. | <a href="admin.html" style="color: #4B5563; font-size: 0.8rem;">Admin</a></p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/919447452039" target="_blank" class="floating-whatsapp"><i class="fab fa-whatsapp"></i></a>
+
+    <nav class="mobile-pill-nav">
+        <a href="index.html"><i class="fas fa-home"></i><span>Home</span></a>
+        <a href="courses.html"><i class="fas fa-laptop-code"></i><span>Courses</span></a>
+        <a href="projects.html"><i class="fas fa-microchip"></i><span>Projects</span></a>
+        <a href="blog.html" class="active"><i class="fas fa-blog"></i><span>Blog</span></a>
+    </nav>
+
+    <script>
+    const blogPosts = [
+        {
+            slug: "top-10-iot-final-year-projects",
+            title: "Top 10 IoT Final Year Projects for ECE Students in 2026",
+            excerpt: "Looking for the best IoT project for your final year? Here are 10 ready-to-build ideas with ESP32, Raspberry Pi, and cloud integration that will impress your evaluators.",
+            date: "May 15, 2026",
+            tags: ["IoT", "Final Year Project", "ESP32", "Raspberry Pi"],
+            readTime: "6 min read",
+            icon: "fas fa-microchip",
+            content: `
+                <h1>Top 10 IoT Final Year Projects for ECE Students in 2026</h1>
+                <div class="blog-meta"><span><i class="far fa-calendar"></i> May 15, 2026</span><span><i class="far fa-clock"></i> 6 min read</span></div>
+
+                <p>If you're an ECE student searching for the perfect final year project, IoT (Internet of Things) is your best bet. It combines hardware, software, and cloud computing — exactly what evaluators look for. Plus, IoT skills are in high demand across industries.</p>
+
+                <p>Here are 10 IoT project ideas that are practical, impressive, and guaranteed to work:</p>
+
+                <h2>1. IoT Battery Management System</h2>
+                <p>Build a professional-grade battery monitoring system using ESP32 that tracks voltage, current, and temperature in real-time. Data is sent to a cloud dashboard where you can visualize trends and set alerts. <strong>Skills gained:</strong> ESP32, ADC, cloud integration, data visualization.</p>
+
+                <h2>2. Smart Railway Dustbin</h2>
+                <p>An automated waste management system that segregates wet and dry waste automatically using sensors and a Flask backend. The ESP32 sends fill-level data to a web dashboard. <strong>Skills gained:</strong> Sensor integration, Flask, automation logic.</p>
+
+                <h2>3. AI Vision Autonomous Rover</h2>
+                <p>A Raspberry Pi-powered robot that uses OpenCV and deep learning for lane detection and autonomous navigation. This is a crowd-favorite in project exhibitions. <strong>Skills gained:</strong> Computer vision, deep learning, motor control.</p>
+
+                <h2>4. Real-Time Environmental Monitoring Dashboard</h2>
+                <p>Deploy multiple sensors (temperature, humidity, air quality) across an area and stream data to a low-latency web dashboard using WebSockets. <strong>Skills gained:</strong> Full-stack IoT, real-time data, WebSockets.</p>
+
+                <h2>5. Smart Agriculture IoT Rover</h2>
+                <p>An ESP32-based rover equipped with NPK and soil moisture sensors that analyzes soil health using ML. Perfect for agriculture-focused projects. <strong>Skills gained:</strong> ML, sensor fusion, IoT.</p>
+
+                <h2>6. Lidar Surveillance Bot</h2>
+                <p>An autonomous security robot using Lidar for 2D/3D environment mapping and patrolling. Maps spaces and detects intrusions. <strong>Skills gained:</strong> Lidar, SLAM, autonomous navigation.</p>
+
+                <h2>7. Radar Surveillance Rover</h2>
+                <p>A specialized surveillance vehicle with 360-degree radar detection for remote spatial awareness. Controlled manually with real-time radar feedback. <strong>Skills gained:</strong> Radar sensors, manual + auto control.</p>
+
+                <h2>8. ML-Based Battery Fault Detector</h2>
+                <p>Use TinyML on ESP32 to predict battery failures and anomalies using pattern recognition. An advanced project that demonstrates edge AI capabilities. <strong>Skills gained:</strong> TinyML, edge computing, fault detection.</p>
+
+                <h2>9. AI-Powered Robotic Arm</h2>
+                <p>A 4-DOF precision robotic arm powered by Raspberry Pi that uses OpenCV for color and shape-based pick-and-place operations. <strong>Skills gained:</strong> Robotics, computer vision, kinematics.</p>
+
+                <h2>10. Lidar Autonomous Wheelchair</h2>
+                <p>A medical-grade navigation system using Lidar for SLAM to ensure safe movement for differently-abled users. A socially impactful project. <strong>Skills gained:</strong> SLAM, safety systems, assistive technology.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Need help building your project?</strong> We provide end-to-end development, IEEE-format documentation, and viva support. <a href="https://wa.me/919447452039" target="_blank">Contact us on WhatsApp</a> to get started.</p>
+                </div>
+            `
+        },
+        {
+            slug: "python-for-placements-guide",
+            title: "Python for Placements: What Engineering Students Need to Know in 2026",
+            excerpt: "Python is the #1 language for coding rounds at TCS, Infosys, Zoho, and Wipro. Here's exactly what to study and how to prepare in 30 days.",
+            date: "May 12, 2026",
+            tags: ["Python", "Placement", "Coding", "Career"],
+            readTime: "5 min read",
+            icon: "fab fa-python",
+            content: `
+                <h1>Python for Placements: What Engineering Students Need to Know</h1>
+                <div class="blog-meta"><span><i class="far fa-calendar"></i> May 12, 2026</span><span><i class="far fa-clock"></i> 5 min read</span></div>
+
+                <p>Python has overtaken C and Java as the most preferred language for campus placement coding rounds. Companies like TCS NQT, Infosys, Zoho, and Wipro now use Python extensively in their assessment tests.</p>
+
+                <p>The reason is simple: Python lets you focus on <strong>logic building</strong> rather than syntax. But that doesn't mean you can wing it. Here's a 30-day roadmap to crack Python-based coding rounds.</p>
+
+                <h2>Week 1: Python Fundamentals</h2>
+                <p>Start with the basics — data types, control flow, functions, and list/dict comprehensions. <strong>Focus areas:</strong> strings, lists, tuples, sets, dictionaries, loops, conditional statements, functions, lambda.</p>
+
+                <h2>Week 2: Data Structures in Python</h2>
+                <p>Master the built-in data structures and their time complexities. <strong>Focus areas:</strong> stack (using list), queue (using deque), linked list implementation, tree traversal, graph representation.</p>
+
+                <h2>Week 3: Algorithms</h2>
+                <p>Solve problems from past TCS NQT and Infosys papers. <strong>Focus areas:</strong> sorting (merge, quick), searching (binary), recursion, dynamic programming basics, string algorithms.</p>
+
+                <h2>Week 4: Mock Tests & Speed Practice</h2>
+                <p>Time-bound practice is crucial. Solve 3-4 problems daily under a timer. <strong>Focus areas:</strong> pattern printing, number systems, array manipulation, matrix operations.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Want a structured program?</strong> Our <a href="courses.html?enroll=Python-to-Placement%3A%20The%2030-Day%20Logic%20Sprint">Python-to-Placement: The 30-Day Logic Sprint</a> course gives you daily challenges curated from actual placement papers. Enroll now for ₹899.</p>
+                </div>
+
+                <h2>Common Mistakes to Avoid</h2>
+                <ul>
+                    <li><strong>Ignoring time complexity:</strong> Python is slower than C. Your solution must be efficient.</li>
+                    <li><strong>Skipping edge cases:</strong> Empty inputs, single elements, negative numbers — test them all.</li>
+                    <li><strong>Not practicing on paper:</strong> Some companies still have pen-paper rounds.</li>
+                </ul>
+
+                <p>Start today, and you'll be placement-ready in 30 days.</p>
+            `
+        },
+        {
+            slug: "esp32-vs-raspberry-pi-project-guide",
+            title: "ESP32 vs Raspberry Pi: Which is Better for Your Engineering Project?",
+            excerpt: "Confused between ESP32 and Raspberry Pi? We break down the differences, use cases, and help you pick the right board for your final year project.",
+            date: "May 8, 2026",
+            tags: ["ESP32", "Raspberry Pi", "Hardware", "Electronics"],
+            readTime: "7 min read",
+            icon: "fas fa-microchip",
+            content: `
+                <h1>ESP32 vs Raspberry Pi: Which is Better for Your Engineering Project?</h1>
+                <div class="blog-meta"><span><i class="far fa-calendar"></i> May 8, 2026</span><span><i class="far fa-clock"></i> 7 min read</span></div>
+
+                <p>One of the first questions every engineering student asks when starting a project: <strong>Should I use ESP32 or Raspberry Pi?</strong></p>
+
+                <p>The answer depends on what you're building. Both are powerful, but they serve different purposes. Let's break it down.</p>
+
+                <h2>ESP32: The Connectivity King</h2>
+                <p><strong>Best for:</strong> IoT, sensor data collection, battery-powered devices, real-time control.</p>
+                <ul>
+                    <li><strong>Price:</strong> ₹400-₹800 — much cheaper</li>
+                    <li><strong>Power:</strong> Very low power consumption, battery-friendly</li>
+                    <li><strong>Built-in connectivity:</strong> WiFi + Bluetooth (BLE) built-in</li>
+                    <li><strong>GPIO:</strong> 24+ pins for sensors and actuators</li>
+                    <li><strong>Processing:</strong> Dual-core 240MHz — enough for sensor data</li>
+                </ul>
+
+                <h2>Raspberry Pi: The Mini Computer</h2>
+                <p><strong>Best for:</strong> Computer vision, machine learning, web servers, multi-tasking systems.</p>
+                <ul>
+                    <li><strong>Price:</strong> ₹3,500-₹6,000 — more expensive</li>
+                    <li><strong>Power:</strong> Needs 5V/2.5A, not battery-friendly</li>
+                    <li><strong>Connectivity:</strong> WiFi + Bluetooth, plus Ethernet, USB, HDMI</li>
+                    <li><strong>GPIO:</strong> 26 pins, but less real-time capability</li>
+                    <li><strong>Processing:</strong> Quad-core 1.8GHz — runs full Linux, Python, OpenCV</li>
+                </ul>
+
+                <h2>When to Choose ESP32</h2>
+                <ul>
+                    <li>Your project is <strong>battery-powered</strong> or needs to run for days</li>
+                    <li>You're <strong>reading sensors</strong> and sending data to the cloud</li>
+                    <li>You need <strong>real-time control</strong> (motors, relays, PWM)</li>
+                    <li>You have a <strong>tight budget</strong></li>
+                </ul>
+
+                <h2>When to Choose Raspberry Pi</h2>
+                <ul>
+                    <li>Your project involves <strong>camera/image processing</strong></li>
+                    <li>You need to <strong>run ML models</strong> on the device</li>
+                    <li>You're building a <strong>web server</strong> or dashboard</li>
+                    <li>You need <strong>multiple programs</strong> running simultaneously</li>
+                </ul>
+
+                <h2>Hybrid Approach: Best of Both Worlds</h2>
+                <p>Many advanced projects use both! The ESP32 handles sensor reading and motor control, while the Raspberry Pi runs computer vision and cloud communication. They talk to each other over serial or WiFi.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Ready to build?</strong> Browse our <a href="projects.html">project catalog</a> for ready-to-deploy ESP32 and Raspberry Pi projects with full documentation. Or enroll in our <a href="courses.html">Smart-Systems Masterclass</a> to learn from scratch.</p>
+                </div>
+            `
+        }
+    ];
+
+    function renderBlogList() {
+        const grid = document.getElementById('blog-grid');
+        const counter = document.getElementById('blog-counter');
+        grid.innerHTML = '';
+        counter.textContent = blogPosts.length + ' posts';
+
+        blogPosts.forEach(post => {
+            const card = document.createElement('div');
+            card.className = 'blog-card glass-card';
+            const color = ['#EFF6FF', '#F5F3FF', '#FFE5E5'][blogPosts.indexOf(post) % 3];
+            card.innerHTML = `
+                <div class="blog-card-image" style="background: ${color};">
+                    <i class="${post.icon}"></i>
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-tags" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
+                        ${post.tags.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join('')}
+                    </div>
+                    <h3>${post.title}</h3>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> ${post.date}</span>
+                        <span><i class="far fa-clock"></i> ${post.readTime}</span>
+                    </div>
+                    <p>${post.excerpt}</p>
+                    <span class="read-more" onclick="showBlogPost('${post.slug}')">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function showBlogPost(slug) {
+        const post = blogPosts.find(p => p.slug === slug);
+        if (!post) return;
+
+        document.getElementById('blog-list-view').classList.add('hidden');
+        const postView = document.getElementById('blog-post-view');
+        postView.classList.add('active');
+
+        const tagsHtml = post.tags.map(t => `<span class="tag">${t}</span>`).join('');
+        document.getElementById('blog-post-content').innerHTML = `
+            <div class="blog-post-tags">${tagsHtml}</div>
+            ${post.content}
+        `;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showBlogList() {
+        document.getElementById('blog-post-view').classList.remove('active');
+        document.getElementById('blog-list-view').classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderBlogList();
+
+        const slug = window.location.hash.replace('#', '');
+        if (slug && blogPosts.find(p => p.slug === slug)) {
+            showBlogPost(slug);
+        }
+    });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
