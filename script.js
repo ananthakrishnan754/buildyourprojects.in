@@ -31,31 +31,31 @@ const uropayConfig = {
     defaultPaymentLink: "https://app.uropay.me/pay/your-payment-link"
 };
 
-// Data
-let projects = [
-    { title: "AI Vision Autonomous Rover", tags: ["Raspberry Pi", "AI", "Computer Vision", "Autonomous", "Robotics"], description: "A high-performance Raspberry Pi-powered robot utilizing OpenCV and deep learning for real-time lane detection and autonomous navigation.", price: "Starting from ₹16,500.", images: ["images/pro11.jpg"], isFeatured: true },
-    { title: "IoT Battery Manager (ESP32)", tags: ["ESP32", "IoT", "Battery Management", "Dashboard", "Sensors"], description: "A professional-grade battery monitoring system tracking critical parameters like voltage, current, and temperature with a cloud-integrated dashboard.", price: "Starting from ₹16,500.", images: ["images/pro21.jpg"], isFeatured: true },
-    { title: "ML Battery Fault Detector", tags: ["ESP32", "Machine Learning", "ML", "Fault Detection", "AI"], description: "An intelligent diagnostic device leveraging TinyML on ESP32 to predict battery failures and anomalies using pattern recognition.", price: "Contact for a detailed quote.", images: ["images/pro31.jpg"], isFeatured: false },
-    { title: "Real-Time Data Dashboard", tags: ["Raspberry Pi", "Dashboard", "Data Visualization", "IoT", "Web"], description: "A full-stack monitoring solution featuring a low-latency web dashboard utilizing WebSockets for streaming sensor data.", price: "Starting from ₹18,000.", images: ["images/pro41.jpg", "images/pro42.jpg"], isFeatured: true },
-    { title: "Age-GAN Image Generator", tags: ["AI", "Deep Learning", "GAN", "Cybersecurity", "Python"], description: "An advanced deep learning project utilizing Generative Adversarial Networks (GANs) to synthesize realistic human face images for specific age groups.", price: "Contact for pricing.", images: ["images/pro51.jpg"], isFeatured: false },
-    { title: "Smart Railway Dustbin (IoT)", tags: ["ESP32", "Flask", "IoT", "Automation", "Web Dashboard"], description: "An automated waste management system using ESP32 and a Flask backend for automatic wet/dry waste segregation.", price: "Starting from ₹15,800.", images: ["images/pro61.jpg", "images/pro62.jpg"], isFeatured: true },
-    { title: "AI Waste Sorter Robot", tags: ["Raspberry Pi", "AI", "Computer Vision", "Robotics", "Automation"], description: "An industrial-style sorting system combining a Raspberry Pi and a conveyor belt using a CNN to categorize waste materials.", price: "Contact for custom hardware pricing.", images: ["images/pro71.jpg", "images/pro72.jpg"], isFeatured: false },
-    { title: "Autonomous Person-Following Drone", tags: ["Drone", "AI", "Tracking", "GPS", "Autonomous"], description: "A sophisticated UAV project featuring AI-based human tracking using computer vision and PID control loops.", price: "High-end project. Contact for quote.", images: ["images/pro81.jpg"], isFeatured: false },
-    { title: "Agri-Tech IoT Rover", tags: ["ESP32", "IoT", "Agriculture", "ML", "Automation"], description: "A smart agricultural vehicle equipped with NPK and soil moisture sensors using ML to analyze soil health.", price: "Starting from ₹17,500.", images: ["images/pro91.jpg"], isFeatured: false },
-    { title: "AI Robotic Arm (Pick & Place)", tags: ["Raspberry Pi", "Robotic Arm", "AI", "ML", "Pick and Place"], description: "A 4-DOF precision robotic arm powered by Raspberry Pi, using OpenCV for color and shape detection.", price: "Contact for a custom quote.", images: ["images/pro101.jpg"], isFeatured: false },
-    { title: "Lidar Autonomous Wheelchair", tags: ["Lidar", "Autonomous", "Safety", "Healthcare", "Robotics"], description: "A medical-grade navigation system utilizing Lidar for SLAM (Simultaneous Localization and Mapping) to ensure safe movement.", price: "High-end project. Contact for quote.", images: ["images/pro111.jpg"], isFeatured: false },
-    { title: "Lidar Surveillance Bot", tags: ["Lidar", "Surveillance", "Autonomous", "Robotics", "IoT"], description: "An autonomous security robot that uses Lidar for 2D/3D environment mapping and patrolling.", price: "Contact for detailed quote.", images: ["images/pro121.jpg"], isFeatured: false },
-    { title: "Radar Surveillance Rover", tags: ["Radar", "Surveillance", "Manual Control", "Robotics", "IoT"], description: "A specialized surveillance vehicle featuring 360° radar detection for remote spatial awareness.", price: "Starting from ₹15,200.", images: ["images/pro131.jpg"], isFeatured: false }
+// Data - loaded from inline script or hardcoded
+let projects = window.__BUILDYOURPROJECTS_DATA__?.projects || [
+    { title: "AI Vision Autonomous Rover", tags: ["Raspberry Pi", "AI", "Computer Vision", "Autonomous", "Robotics"], description: "A high-performance Raspberry Pi-powered robot utilizing OpenCV and deep learning for real-time lane detection and autonomous navigation.", price: "Starting from ₹16,500.", images: ["images/ai-vision-autonomous-rover.jpg"], isFeatured: true },
+    { title: "IoT Battery Manager (ESP32)", tags: ["ESP32", "IoT", "Battery Management", "Dashboard", "Sensors"], description: "A professional-grade battery monitoring system tracking critical parameters like voltage, current, and temperature with a cloud-integrated dashboard.", price: "Starting from ₹16,500.", images: ["images/iot-battery-manager-esp32.jpg"], isFeatured: true },
+    { title: "ML Battery Fault Detector", tags: ["ESP32", "Machine Learning", "ML", "Fault Detection", "AI"], description: "An intelligent diagnostic device leveraging TinyML on ESP32 to predict battery failures and anomalies using pattern recognition.", price: "Contact for a detailed quote.", images: ["images/ml-battery-fault-detector.jpg"], isFeatured: false },
+    { title: "Real-Time Data Dashboard", tags: ["Raspberry Pi", "Dashboard", "Data Visualization", "IoT", "Web"], description: "A full-stack monitoring solution featuring a low-latency web dashboard utilizing WebSockets for streaming sensor data.", price: "Starting from ₹18,000.", images: ["images/real-time-data-dashboard.jpg", "images/real-time-data-dashboard-2.jpg"], isFeatured: true },
+    { title: "Age-GAN Image Generator", tags: ["AI", "Deep Learning", "GAN", "Cybersecurity", "Python"], description: "An advanced deep learning project utilizing Generative Adversarial Networks (GANs) to synthesize realistic human face images for specific age groups.", price: "Contact for pricing.", images: ["images/age-gan-image-generator.jpg"], isFeatured: false },
+    { title: "Smart Railway Dustbin (IoT)", tags: ["ESP32", "Flask", "IoT", "Automation", "Web Dashboard"], description: "An automated waste management system using ESP32 and a Flask backend for automatic wet/dry waste segregation.", price: "Starting from ₹15,800.", images: ["images/smart-railway-dustbin-iot.jpg", "images/smart-railway-dustbin-iot-2.jpg"], isFeatured: true },
+    { title: "AI Waste Sorter Robot", tags: ["Raspberry Pi", "AI", "Computer Vision", "Robotics", "Automation"], description: "An industrial-style sorting system combining a Raspberry Pi and a conveyor belt using a CNN to categorize waste materials.", price: "Contact for custom hardware pricing.", images: ["images/ai-waste-sorter-robot.jpg", "images/ai-waste-sorter-robot-2.jpg"], isFeatured: false },
+    { title: "Autonomous Person-Following Drone", tags: ["Drone", "AI", "Tracking", "GPS", "Autonomous"], description: "A sophisticated UAV project featuring AI-based human tracking using computer vision and PID control loops.", price: "High-end project. Contact for quote.", images: ["images/autonomous-person-following-drone.jpg"], isFeatured: false },
+    { title: "Agri-Tech IoT Rover", tags: ["ESP32", "IoT", "Agriculture", "ML", "Automation"], description: "A smart agricultural vehicle equipped with NPK and soil moisture sensors using ML to analyze soil health.", price: "Starting from ₹17,500.", images: ["images/agri-tech-iot-rover.jpg"], isFeatured: false },
+    { title: "AI Robotic Arm (Pick & Place)", tags: ["Raspberry Pi", "Robotic Arm", "AI", "ML", "Pick and Place"], description: "A 4-DOF precision robotic arm powered by Raspberry Pi, using OpenCV for color and shape detection.", price: "Contact for a custom quote.", images: ["images/ai-robotic-arm-pick-place.jpg"], isFeatured: false },
+    { title: "Lidar Autonomous Wheelchair", tags: ["Lidar", "Autonomous", "Safety", "Healthcare", "Robotics"], description: "A medical-grade navigation system utilizing Lidar for SLAM (Simultaneous Localization and Mapping) to ensure safe movement.", price: "High-end project. Contact for quote.", images: ["images/lidar-autonomous-wheelchair.jpg"], isFeatured: false },
+    { title: "Lidar Surveillance Bot", tags: ["Lidar", "Surveillance", "Autonomous", "Robotics", "IoT"], description: "An autonomous security robot that uses Lidar for 2D/3D environment mapping and patrolling.", price: "Contact for detailed quote.", images: ["images/lidar-surveillance-bot.jpg"], isFeatured: false },
+    { title: "Radar Surveillance Rover", tags: ["Radar", "Surveillance", "Manual Control", "Robotics", "IoT"], description: "A specialized surveillance vehicle featuring 360° radar detection for remote spatial awareness.", price: "Starting from ₹15,200.", images: ["images/radar-surveillance-rover.jpg"], isFeatured: false }
 ];
 
-let courses = [
+let courses = window.__BUILDYOURPROJECTS_DATA__?.courses || [
     {
         title: "Python-to-Placement: The 30-Day Logic Sprint",
         tags: ["Placement", "Python", "Logic Building"],
         description: "Master the language of the AI era by focusing on career-critical skills. This track skips abstract theory to focus on solving high-frequency coding rounds. You will build logic for placement exams and automate real-world engineering tasks through daily hands-on practice.",
         price: 899,
         startDate: "Immediate",
-        images: ["images/course 1.png"],
+        images: ["images/python-to-placement-course.png"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
                 <h4 style="color: var(--primary-color); margin-bottom: 4px; font-size: 1.05rem;"><i class="fas fa-clock"></i> Duration</h4>
@@ -77,7 +77,7 @@ let courses = [
         description: "Stop \"chatting\" and start \"engineering\". This course teaches you to leverage advanced prompting and context engineering to code, debug, and document complex projects with professional speed. Transform from a standard student into a high-efficiency developer using AI as a professional multiplier.",
         price: 499,
         startDate: "Immediate",
-        images: ["images/course 2.png"],
+        images: ["images/ai-prompting-developer-course.png"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
                 <h4 style="color: var(--primary-color); margin-bottom: 4px; font-size: 1.05rem;"><i class="fas fa-clock"></i> Duration</h4>
@@ -99,7 +99,7 @@ let courses = [
         description: "A hands-on dive into Gen-AI without intimidating math. Focus on building functional tools, from AI-powered PDF readers to autonomous digital agents. Learn to integrate LLM APIs into applications, moving from simple prompting to full-scale AI orchestration.",
         price: 999,
         startDate: "Immediate",
-        images: ["images/course 3.png"],
+        images: ["images/generative-ai-bots-course.png"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
                 <h4 style="color: var(--primary-color); margin-bottom: 4px; font-size: 1.05rem;"><i class="fas fa-clock"></i> Duration</h4>
@@ -121,7 +121,7 @@ let courses = [
         description: "Master the bridge between the digital and physical worlds. This course takes you from basic ESP32 sensor integration to building autonomous mobile robots. Gain practical experience in hardware-to-cloud communication, BLE/Wi-Fi integration, and ROS 2 fundamentals for India's surging robotics sector.",
         price: 1299,
         startDate: "Immediate",
-        images: ["images/course 4.png"],
+        images: ["images/esp32-robotics-course.png"],
         syllabus: `<div class="course-track-details" style="padding: 12px 0; text-align: left;">
             <div style="margin-bottom: 16px;">
                 <h4 style="color: var(--primary-color); margin-bottom: 4px; font-size: 1.05rem;"><i class="fas fa-clock"></i> Duration</h4>
