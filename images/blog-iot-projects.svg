@@ -1,0 +1,20 @@
+<svg width="400" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" fill="#0F172A"/>
+  <circle cx="200" cy="100" r="80" fill="none" stroke="#2563EB" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+  <circle cx="200" cy="100" r="50" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4"/>
+  <circle cx="200" cy="100" r="20" fill="#2563EB" opacity="0.2"/>
+  <circle cx="200" cy="100" r="8" fill="#60A5FA"/>
+  <circle cx="130" cy="60" r="5" fill="#2563EB" opacity="0.6"/>
+  <circle cx="270" cy="60" r="5" fill="#2563EB" opacity="0.6"/>
+  <circle cx="130" cy="140" r="5" fill="#2563EB" opacity="0.6"/>
+  <circle cx="270" cy="140" r="5" fill="#2563EB" opacity="0.6"/>
+  <line x1="135" y1="62" x2="193" y2="96" stroke="#2563EB" stroke-width="1.5" opacity="0.5"/>
+  <line x1="265" y1="62" x2="207" y2="96" stroke="#2563EB" stroke-width="1.5" opacity="0.5"/>
+  <line x1="135" y1="138" x2="193" y2="104" stroke="#2563EB" stroke-width="1.5" opacity="0.5"/>
+  <line x1="265" y1="138" x2="207" y2="104" stroke="#2563EB" stroke-width="1.5" opacity="0.5"/>
+  <rect x="80" y="170" width="10" height="6" rx="1" fill="#60A5FA" opacity="0.4"/>
+  <rect x="160" y="170" width="10" height="6" rx="1" fill="#60A5FA" opacity="0.4"/>
+  <rect x="240" y="170" width="10" height="6" rx="1" fill="#60A5FA" opacity="0.4"/>
+  <rect x="310" y="170" width="10" height="6" rx="1" fill="#60A5FA" opacity="0.4"/>
+  <text x="200" y="185" font-family="Inter, sans-serif" font-weight="600" font-size="9" fill="#64748B" text-anchor="middle">IoT PROJECTS</text>
+</svg>

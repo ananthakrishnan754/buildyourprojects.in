@@ -1,0 +1,30 @@
+<svg width="400" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" fill="#0F172A"/>
+  <!-- ESP32 chip -->
+  <rect x="60" y="55" width="80" height="90" rx="6" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="1.5"/>
+  <rect x="68" y="63" width="64" height="20" rx="3" fill="#2563EB" opacity="0.25"/>
+  <text x="100" y="77" font-family="Inter, sans-serif" font-weight="700" font-size="10" fill="#60A5FA" text-anchor="middle">ESP32</text>
+  <rect x="68" y="90" width="64" height="4" rx="1" fill="#2563EB" opacity="0.15"/>
+  <rect x="68" y="98" width="50" height="4" rx="1" fill="#2563EB" opacity="0.15"/>
+  <rect x="68" y="106" width="56" height="4" rx="1" fill="#2563EB" opacity="0.15"/>
+  <rect x="68" y="114" width="44" height="4" rx="1" fill="#2563EB" opacity="0.15"/>
+  <!-- Antenna -->
+  <line x1="100" y1="55" x2="100" y2="30" stroke="#2563EB" stroke-width="1.5" opacity="0.5"/>
+  <line x1="100" y1="30" x2="90" y2="20" stroke="#2563EB" stroke-width="1.5" opacity="0.5"/>
+  <line x1="100" y1="30" x2="110" y2="20" stroke="#2563EB" stroke-width="1.5" opacity="0.5"/>
+  <!-- VS text -->
+  <text x="200" y="108" font-family="Inter, sans-serif" font-weight="800" font-size="20" fill="#475569" text-anchor="middle">VS</text>
+  <!-- Raspberry Pi board -->
+  <rect x="250" y="55" width="90" height="90" rx="6" fill="#10B981" opacity="0.1" stroke="#10B981" stroke-width="1.5"/>
+  <rect x="258" y="63" width="74" height="20" rx="3" fill="#10B981" opacity="0.2"/>
+  <text x="295" y="77" font-family="Inter, sans-serif" font-weight="700" font-size="10" fill="#34D399" text-anchor="middle">R-Pi</text>
+  <rect x="258" y="90" width="74" height="4" rx="1" fill="#10B981" opacity="0.15"/>
+  <rect x="258" y="98" width="60" height="4" rx="1" fill="#10B981" opacity="0.15"/>
+  <rect x="258" y="106" width="66" height="4" rx="1" fill="#10B981" opacity="0.15"/>
+  <rect x="258" y="114" width="54" height="4" rx="1" fill="#10B981" opacity="0.15"/>
+  <!-- GPIO pins -->
+  <rect x="340" y="70" width="4" height="6" rx="1" fill="#10B981" opacity="0.3"/>
+  <rect x="340" y="80" width="4" height="6" rx="1" fill="#10B981" opacity="0.3"/>
+  <rect x="340" y="90" width="4" height="6" rx="1" fill="#10B981" opacity="0.3"/>
+  <text x="200" y="180" font-family="Inter, sans-serif" font-weight="600" font-size="9" fill="#64748B" text-anchor="middle">ESP32 vs RASPBERRY PI</text>
+</svg>

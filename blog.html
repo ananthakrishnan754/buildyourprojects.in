@@ -132,7 +132,7 @@
             date: "May 15, 2026",
             tags: ["IoT", "Final Year Project", "ESP32", "Raspberry Pi"],
             readTime: "6 min read",
-            icon: "fas fa-microchip",
+            image: "images/blog-iot-projects.svg",
             content: `
                 <h1>Top 10 IoT Final Year Projects for ECE Students in 2026</h1>
                 <div class="blog-meta"><span><i class="far fa-calendar"></i> May 15, 2026</span><span><i class="far fa-clock"></i> 6 min read</span></div>
@@ -183,7 +183,7 @@
             date: "May 12, 2026",
             tags: ["Python", "Placement", "Coding", "Career"],
             readTime: "5 min read",
-            icon: "fab fa-python",
+            image: "images/blog-python-placement.svg",
             content: `
                 <h1>Python for Placements: What Engineering Students Need to Know</h1>
                 <div class="blog-meta"><span><i class="far fa-calendar"></i> May 12, 2026</span><span><i class="far fa-clock"></i> 5 min read</span></div>
@@ -225,7 +225,7 @@
             date: "May 8, 2026",
             tags: ["ESP32", "Raspberry Pi", "Hardware", "Electronics"],
             readTime: "7 min read",
-            icon: "fas fa-microchip",
+            image: "images/blog-esp32-vs-rpi.svg",
             content: `
                 <h1>ESP32 vs Raspberry Pi: Which is Better for Your Engineering Project?</h1>
                 <div class="blog-meta"><span><i class="far fa-calendar"></i> May 8, 2026</span><span><i class="far fa-clock"></i> 7 min read</span></div>
@@ -291,8 +291,8 @@
             card.className = 'blog-card glass-card';
             const color = ['#EFF6FF', '#F5F3FF', '#FFE5E5'][blogPosts.indexOf(post) % 3];
             card.innerHTML = `
-                <div class="blog-card-image" style="background: ${color};">
-                    <i class="${post.icon}"></i>
+                <div class="blog-card-image" style="padding:0; overflow:hidden;">
+                    <img src="${post.image}" alt="${post.title}" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <div class="blog-card-content">
                     <div class="blog-tags" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;">
