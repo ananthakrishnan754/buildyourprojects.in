@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Python Mini Project Kit | BuildYourProjects</title>
+    <meta name="description" content="Download 5 Python mini projects with source code. Build a calculator, weather app, to-do list, quiz game & password generator in one weekend.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.buildyourprojects.xyz/free-guide">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Python Mini Project Kit - 5 Projects with Source Code">
+    <meta property="og:description" content="Download 5 Python mini projects with source code. Build in one weekend.">
+    <meta property="og:url" content="https://www.buildyourprojects.xyz/free-guide">
+    <meta property="og:image" content="https://www.buildyourprojects.xyz/images/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Python Mini Project Kit">
+    <meta name="twitter:description" content="5 Python projects with source code. Free download.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Inter:wght@400;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHKKFYEKRP"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-YHKKFYEKRP');</script>
+    <style>
+        .guide-hero { padding: 100px 24px 60px; text-align: center; background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: white; }
+        .guide-hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 16px; color: white; letter-spacing: -1px; }
+        .guide-hero h1 span { color: #60A5FA; }
+        .guide-hero p { font-size: 1.1rem; color: #94A3B8; max-width: 600px; margin: 0 auto 32px; }
+        .guide-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(37,99,235,0.15); color: #60A5FA; padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; border: 1px solid rgba(37,99,235,0.2); }
+        .signup-section { padding: 60px 24px; background: #F8FAFC; }
+        .signup-box { max-width: 560px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #E2E8F0; text-align: center; }
+        .signup-box h2 { font-size: 1.5rem; margin-bottom: 8px; }
+        .signup-box p { color: #64748B; margin-bottom: 24px; font-size: 0.95rem; }
+        .signup-form { display: flex; flex-direction: column; gap: 12px; }
+        .signup-form input { width: 100%; padding: 14px 16px; border: 1px solid #E2E8F0; border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; outline: none; transition: all 0.3s; }
+        .signup-form input:focus { border-color: #2563EB; box-shadow: 0 0 0 4px rgba(37,99,235,0.1); }
+        .signup-form button { padding: 14px; background: #2563EB; color: white; border: none; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s; }
+        .signup-form button:hover { background: #1D4ED8; transform: translateY(-1px); }
+        .signup-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .trust-text { font-size: 0.8rem; color: #94A3B8; margin-top: 12px; }
+        .trust-text i { color: #10B981; margin-right: 4px; }
+        .success-message { display: none; }
+        .success-message.active { display: block; }
+        .success-message i { font-size: 3rem; color: #10B981; margin-bottom: 16px; }
+        .guide-content { padding: 60px 24px; background: white; display: none; }
+        .guide-content.active { display: block; }
+        .guide-content h2 { font-size: 1.8rem; margin-bottom: 40px; text-align: center; }
+        .project-card-guide { background: #F8FAFC; border-radius: 16px; padding: 24px; margin-bottom: 24px; border: 1px solid #E2E8F0; transition: all 0.3s; }
+        .project-card-guide:hover { border-color: #2563EB; box-shadow: 0 4px 12px rgba(37,99,235,0.08); }
+        .project-card-guide h3 { font-size: 1.2rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .project-card-guide h3 span { background: #DBEAFE; color: #1D4ED8; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; }
+        .project-card-guide p { color: #475569; font-size: 0.95rem; margin-bottom: 12px; }
+        .project-card-guide pre { background: #1E293B; color: #E2E8F0; padding: 16px; border-radius: 8px; font-size: 0.8rem; overflow-x: auto; margin-top: 12px; }
+        .cta-banner { background: linear-gradient(135deg, #2563EB, #1D4ED8); color: white; text-align: center; padding: 48px 24px; border-radius: 16px; margin: 40px 0; }
+        .cta-banner h3 { color: white; font-size: 1.5rem; margin-bottom: 12px; }
+        .cta-banner p { color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+        .cta-banner a { display: inline-block; background: white; color: #2563EB; padding: 12px 28px; border-radius: 50px; font-weight: 600; text-decoration: none; }
+        .cta-banner a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        @media (max-width: 768px) { .guide-hero h1 { font-size: 1.8rem; } .signup-box { padding: 24px; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">
+                <img src="images/logo.svg" alt="BuildYourProjects" class="logo-image" onerror="this.src='images/logo.png'">
+            </a>
+            <div class="header-right">
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="courses.html">Courses</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="index.html#contact-us-section">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="guide-badge"><i class="fas fa-graduation-cap"></i> Free Resource — 1032 students downloaded</div>
+        <h1>Python Mini Project Kit<br><span>5 Projects. One Weekend. Zero Cost.</span></h1>
+        <p>Full source code + step-by-step explanation for 5 Python projects. Build your portfolio, practice logic, and get placement-ready.</p>
+    </section>
+
+    <section class="signup-section" id="signup-section">
+        <div class="signup-box" id="signup-box">
+            <div id="signup-form-view">
+                <i class="fas fa-download" style="font-size: 2rem; color: #2563EB; margin-bottom: 16px;"></i>
+                <h2>Get the Kit — It's Free</h2>
+                <p>Enter your email and we'll send you the full source code + guide instantly.</p>
+                <form class="signup-form" id="lead-form">
+                    <input type="text" id="lead-name" placeholder="Your Name" required>
+                    <input type="email" id="lead-email" placeholder="Email Address" required>
+                    <input type="text" id="lead-college" placeholder="College / University (optional)">
+                    <button type="submit" id="lead-submit-btn"><i class="fas fa-rocket"></i> Send Me the Free Kit</button>
+                </form>
+                <p class="trust-text"><i class="fas fa-shield-alt"></i> No spam. Unsubscribe anytime. Your email is safe with us.</p>
+            </div>
+            <div class="success-message" id="success-message">
+                <i class="fas fa-check-circle"></i>
+                <h2 style="margin-bottom: 8px;">Check Your Inbox! 📬</h2>
+                <p style="color: #64748B; margin-bottom: 4px;">We've sent the Python Mini Project Kit to <strong id="sent-email-display"></strong></p>
+                <p style="color: #94A3B8; font-size: 0.85rem;">Can't find it? Check spam/promotions folder.</p>
+                <a href="#guide-content" class="btn-primary" style="display: inline-block; margin-top: 20px;" onclick="showContent()">Or View It Here Now <i class="fas fa-arrow-down"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="guide-content" id="guide-content">
+        <div class="container">
+            <h2>📘 5 Python Projects — Full Source Code</h2>
+
+            <div class="project-card-guide">
+                <h3>1. CLI Calculator <span>Beginner</span></h3>
+                <p>A command-line calculator that handles basic arithmetic, memory functions, and error handling. Great for understanding functions and user input.</p>
+                <pre>def calculator():
+    print("=== Python Calculator ===")
+    while True:
+        op = input("Enter op (+, -, *, /, q to quit): ")
+        if op == 'q': break
+        a, b = float(input("a: ")), float(input("b: "))
+        ops = {'+': a+b, '-': a-b, '*': a*b, '/': a/b if b else 'Error'}
+        print(f"Result: {ops.get(op, 'Invalid op')}\n")</pre>
+            </div>
+
+            <div class="project-card-guide">
+                <h3>2. Quiz Game <span>Beginner</span></h3>
+                <p>A multiple-choice quiz with score tracking and timer. Teaches dictionaries, lists, and conditional logic.</p>
+                <pre>quiz = {
+    "What is the output of 2**3?": ["6", "8", "9", "4"],
+    "Which is mutable?": ["tuple", "list", "str", "int"]
+}
+score = 0
+for q, opts in quiz.items():
+    print(q)
+    for i, o in enumerate(opts, 1): print(f"{i}. {o}")
+    ans = int(input("Your answer (1-4): "))
+    if ans == 2: score += 1  # correct answers at index 1
+print(f"Score: {score}/{len(quiz)}")</pre>
+            </div>
+
+            <div class="project-card-guide">
+                <h3>3. To-Do List App <span>Intermediate</span></h3>
+                <p>A task manager with add, delete, complete, and save-to-file features. Teaches file I/O and CRUD operations.</p>
+                <pre>tasks = []
+def add(t): tasks.append({"task": t, "done": False})
+def show():
+    for i, t in enumerate(tasks, 1):
+        status = "✅" if t["done"] else "⬜"
+        print(f"{i}. {status} {t['task']}")
+def done(i): tasks[i-1]["done"] = True
+def save(): 
+    with open("tasks.txt", "w") as f:
+        for t in tasks: f.write(f"{t['task']}|{t['done']}\n")</pre>
+            </div>
+
+            <div class="project-card-guide">
+                <h3>4. Password Generator <span>Intermediate</span></h3>
+                <p>Generates strong random passwords with configurable length and character types. Teaches random module and string manipulation.</p>
+                <pre>import random, string
+def generate(length=12, use_special=True):
+    chars = string.ascii_letters + string.digits
+    if use_special: chars += "!@#$%^&*"
+    pwd = ''.join(random.choice(chars) for _ in range(length))
+    # Ensure at least one of each type
+    if not any(c.isdigit() for c in pwd): pwd += random.choice(string.digits)
+    return pwd
+
+print(generate(16))  # e.g. "aK8#mP2$xL9@qR5!"</pre>
+            </div>
+
+            <div class="project-card-guide">
+                <h3>5. Weather CLI <span>Advanced</span></h3>
+                <p>Fetches live weather data from OpenWeatherMap API. Teaches API calls, JSON parsing, and error handling.</p>
+                <pre>import requests, json
+def get_weather(city):
+    key = "YOUR_API_KEY"  # Get free key at openweathermap.org
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={key}&units=metric"
+    try:
+        data = requests.get(url).json()
+        temp = data["main"]["temp"]
+        desc = data["weather"][0]["description"]
+        print(f"{city}: {temp}°C, {desc}")
+    except: print("City not found or API error")
+
+get_weather("Kochi")</pre>
+            </div>
+
+            <div class="cta-banner">
+                <h3>🚀 Want to Go Beyond Basics?</h3>
+                <p>Our Python-to-Placement course covers 30 days of logic building with real placement papers from TCS, Infosys & Zoho.</p>
+                <a href="courses.html?enroll=Python-to-Placement%3A%20The%2030-Day%20Logic%20Sprint">Enroll for ₹899 →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 buildyourprojects. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/919447452039" target="_blank" class="floating-whatsapp"><i class="fab fa-whatsapp"></i></a>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    <!-- EmailJS SDK for automated email delivery -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyDgtQs0mreNT7uSFVrhaPcy_YUeqgO_F8Q",
+        authDomain: "buildyourprojects-f3983.firebaseapp.com",
+        databaseURL: "https://buildyourprojects-f3983-default-rtdb.firebaseio.com",
+        projectId: "buildyourprojects-f3983",
+        storageBucket: "buildyourprojects-f3983.firebasestorage.app",
+        messagingSenderId: "702758316685",
+        appId: "1:702758316685:web:4687d58580ab41a2a210c4"
+    };
+    const app = firebase.initializeApp(firebaseConfig, "leadApp");
+    const db = firebase.firestore(app);
+
+    emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // 🔧 Replace with your EmailJS Public Key
+
+    document.getElementById('lead-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('lead-submit-btn');
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        btn.disabled = true;
+
+        const name = document.getElementById('lead-name').value;
+        const email = document.getElementById('lead-email').value;
+        const college = document.getElementById('lead-college').value;
+        const downloadLink = "https://www.buildyourprojects.xyz/free-guide#guide-content";
+
+        try {
+            // 1. Save to Firebase
+            await db.collection("leads").add({
+                name, email, college: college || '',
+                source: "free-guide",
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+
+            // 2. Send auto-responder email via EmailJS
+            emailjs.send(
+                "YOUR_EMAILJS_SERVICE_ID", // 🔧 Replace with your EmailJS Service ID
+                "YOUR_EMAILJS_TEMPLATE_ID", // 🔧 Replace with your EmailJS Template ID
+                {
+                    to_name: name,
+                    to_email: email,
+                    reply_to: "buildyourprojects754@gmail.com",
+                    download_link: downloadLink,
+                    from_name: "BuildYourProjects Team",
+                    message: "Thanks for signing up! Here's your Python Mini Project Kit with 5 projects. Click the link below to access all source code instantly."
+                }
+            ).then(() => {
+                console.log("Auto-responder sent to", email);
+            }).catch(err => {
+                console.warn("EmailJS auto-responder failed (still saved lead):", err);
+            });
+
+            // 3. Show success
+            document.getElementById('sent-email-display').textContent = email;
+            document.getElementById('signup-form-view').style.display = 'none';
+            document.getElementById('success-message').classList.add('active');
+
+            gtag('event', 'lead_capture', { 'event_category': 'signup', 'event_label': 'free-guide' });
+        } catch (err) {
+            console.error("Lead save failed:", err);
+            btn.innerHTML = '<i class="fas fa-rocket"></i> Send Me the Free Kit';
+            btn.disabled = false;
+            alert("Something went wrong. Please try again.");
+        }
+    });
+
+    function showContent() {
+        document.getElementById('guide-content').classList.add('active');
+        document.getElementById('guide-content').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    if (window.location.hash === '#guide-content') {
+        document.getElementById('guide-content').classList.add('active');
+    }
+    </script>
+</body>
+</html>
