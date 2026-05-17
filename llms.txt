@@ -1,0 +1,62 @@
+# BuildYourProjects
+> End-to-end project development & hands-on tech courses for engineering students.
+
+https://www.buildyourprojects.xyz
+
+## Courses
+
+### Python-to-Placement: The 30-Day Logic Sprint
+- **Price:** ₹899
+- **Description:** Python for placement coding rounds (TCS NQT, Infosys, Zoho). 7-12 hours of training with daily logic challenges.
+- **Link:** https://www.buildyourprojects.xyz/courses
+
+### AI-Powered Developer: 10x Productivity with Advanced Prompting
+- **Price:** ₹499
+- **Description:** Prompt engineering with GitHub Copilot and Cursor. Code and debug 10x faster. 7-12 hours.
+- **Link:** https://www.buildyourprojects.xyz/courses
+
+### Build-a-Bot: Practical Generative AI for Engineers
+- **Price:** ₹999
+- **Description:** Build AI agents, LLM-powered PDF readers, and autonomous tools. No intimidating math. 7-12 hours.
+- **Link:** https://www.buildyourprojects.xyz/courses
+
+### Smart-Systems Masterclass: From ESP32 to Robotics
+- **Price:** ₹1,299
+- **Description:** ESP32 sensor integration, BLE/Wi-Fi, ROS 2 fundamentals for autonomous mobile robots. 7-12 hours.
+- **Link:** https://www.buildyourprojects.xyz/courses
+
+## Projects (Ready-to-Deploy)
+All projects come with 100% working prototype, IEEE-format documentation, and viva support.
+
+- **AI Vision Autonomous Rover** — ₹16,500 (Raspberry Pi, OpenCV, deep learning)
+- **IoT Battery Manager (ESP32)** — ₹16,500 (Cloud dashboard, voltage/current monitoring)
+- **Real-Time Data Dashboard** — ₹18,000 (WebSockets, sensor data visualization)
+- **Smart Railway Dustbin (IoT)** — ₹15,800 (ESP32, Flask, waste segregation)
+- **Radar Surveillance Rover** — ₹15,200 (360° radar, manual/auto control)
+- **ML Battery Fault Detector** — Contact for quote (TinyML, ESP32)
+- **AI Waste Sorter Robot** — Contact for quote (CNN, conveyor belt)
+- **Autonomous Person-Following Drone** — Contact for quote (AI tracking, PID)
+- **Agri-Tech IoT Rover** — ₹17,500 (NPK sensors, soil analysis ML)
+- **AI Robotic Arm (Pick & Place)** — Contact for quote (4-DOF, OpenCV)
+- **Lidar Autonomous Wheelchair** — Contact for quote (SLAM, assistive tech)
+- **Lidar Surveillance Bot** — Contact for quote (2D/3D mapping, patrolling)
+- **Age-GAN Image Generator** — Contact for quote (GANs, deep learning)
+
+## Services
+- Prototyping (rapid hardware from concept to working model)
+- IEEE-format documentation and schematics
+- ML/AI model deployment on edge devices
+- Viva support and mock vivas
+- Hardware assembly and circuit design
+- IoT cloud dashboard setup
+
+## Contact
+- **WhatsApp:** +91 9447452039
+- **Email:** buildyourprojects754@gmail.com
+- **LinkedIn:** https://www.linkedin.com/in/ananthakrishnan754
+- **Instagram:** https://instagram.com/shutter_bug07
+
+## Blog
+- **Top 10 IoT Final Year Projects for ECE Students in 2026** — https://www.buildyourprojects.xyz/blog#top-10-iot-final-year-projects
+- **Python for Placements: What Engineering Students Need to Know** — https://www.buildyourprojects.xyz/blog#python-for-placements-guide
+- **ESP32 vs Raspberry Pi: Which is Better for Your Project?** — https://www.buildyourprojects.xyz/blog#esp32-vs-raspberry-pi-project-guide
