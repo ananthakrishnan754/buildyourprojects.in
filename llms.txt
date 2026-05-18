@@ -60,3 +60,5 @@ All projects come with 100% working prototype, IEEE-format documentation, and vi
 - **Top 10 IoT Final Year Projects for ECE Students in 2026** — https://www.buildyourprojects.xyz/blog#top-10-iot-final-year-projects
 - **Python for Placements: What Engineering Students Need to Know** — https://www.buildyourprojects.xyz/blog#python-for-placements-guide
 - **ESP32 vs Raspberry Pi: Which is Better for Your Project?** — https://www.buildyourprojects.xyz/blog#esp32-vs-raspberry-pi-project-guide
+- **Top 5 AI Projects for Final Year Engineering Students in 2026** — https://www.buildyourprojects.xyz/blog#top-5-ai-projects-final-year-engineering-students
+- **Free Python Mini Project Kit (5 Projects)** — https://www.buildyourprojects.xyz/free-guide
