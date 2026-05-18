@@ -223,7 +223,7 @@ get_weather("Kochi")</pre>
     const app = firebase.initializeApp(firebaseConfig, "leadApp");
     const db = firebase.firestore(app);
 
-    emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // 🔧 Replace with your EmailJS Public Key
+    emailjs.init("M8uQkZmmPT_DGSrzh");
 
     document.getElementById('lead-form').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -246,8 +246,8 @@ get_weather("Kochi")</pre>
 
             // 2. Send auto-responder email via EmailJS
             emailjs.send(
-                "YOUR_EMAILJS_SERVICE_ID", // 🔧 Replace with your EmailJS Service ID
-                "YOUR_EMAILJS_TEMPLATE_ID", // 🔧 Replace with your EmailJS Template ID
+                "service_27794ep",
+                "template_0rkumub",
                 {
                     to_name: name,
                     to_email: email,
