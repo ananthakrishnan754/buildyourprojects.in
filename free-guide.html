@@ -220,8 +220,8 @@ get_weather("Kochi")</pre>
         messagingSenderId: "702758316685",
         appId: "1:702758316685:web:4687d58580ab41a2a210c4"
     };
-    const app = firebase.initializeApp(leadFirebaseConfig, "leadApp");
-    const db = firebase.firestore(app);
+    const leadApp = firebase.initializeApp(leadFirebaseConfig, "leadApp");
+    const leadDb = firebase.firestore(leadApp);
 
     emailjs.init("M8uQkZmmPT_DGSrzh");
 
@@ -238,7 +238,7 @@ get_weather("Kochi")</pre>
 
         try {
             // 1. Save to Firebase
-            await db.collection("leads").add({
+            await leadDb.collection("leads").add({
                 name, email, college: college || '',
                 source: "free-guide",
                 createdAt: firebase.firestore.FieldValue.serverTimestamp()
