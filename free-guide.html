@@ -211,7 +211,7 @@ get_weather("Kochi")</pre>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
     <script>
-    const firebaseConfig = {
+    const leadFirebaseConfig = {
         apiKey: "AIzaSyDgtQs0mreNT7uSFVrhaPcy_YUeqgO_F8Q",
         authDomain: "buildyourprojects-f3983.firebaseapp.com",
         databaseURL: "https://buildyourprojects-f3983-default-rtdb.firebaseio.com",
@@ -220,7 +220,7 @@ get_weather("Kochi")</pre>
         messagingSenderId: "702758316685",
         appId: "1:702758316685:web:4687d58580ab41a2a210c4"
     };
-    const app = firebase.initializeApp(firebaseConfig, "leadApp");
+    const app = firebase.initializeApp(leadFirebaseConfig, "leadApp");
     const db = firebase.firestore(app);
 
     emailjs.init("M8uQkZmmPT_DGSrzh");
