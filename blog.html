@@ -134,6 +134,169 @@
     <script>
     const blogPosts = [
         {
+            slug: "arduino-vs-esp32-vs-stm32-microcontroller-guide",
+            title: "Arduino vs ESP32 vs STM32: Which Microcontroller Should You Choose?",
+            excerpt: "Confused between Arduino, ESP32, and STM32 for your project? Compare specs, cost, use cases, and pick the right board for your engineering project.",
+            date: "May 20, 2026",
+            tags: ["Arduino", "ESP32", "STM32", "Microcontroller", "Embedded Systems"],
+            readTime: "7 min read",
+            image: "images/blog-microcontroller-comparison.svg",
+            content: `
+                <h1>Arduino vs ESP32 vs STM32: Which Microcontroller Should You Choose?</h1>
+                <div class="blog-meta"><span><i class="far fa-calendar"></i> May 20, 2026</span><span><i class="far fa-clock"></i> 7 min read</span></div>
+
+                <p>Every engineering student faces this question at some point: <strong>Which microcontroller should I use for my project?</strong></p>
+
+                <p>The three most common choices are Arduino, ESP32, and STM32. Each has its strengths, and picking the wrong one can waste weeks of development time. Here's a no-nonsense comparison to help you decide.</p>
+
+                <h2>Arduino — The Beginner's Best Friend</h2>
+                <p><strong>Best for:</strong> Beginners, simple projects, quick prototyping, school-level robotics.</p>
+                <ul>
+                    <li><strong>Processor:</strong> 8-bit AVR (ATmega328P) at 16MHz</li>
+                    <li><strong>Price:</strong> ₹500 - ₹2,000 (genuine) / ₹150 - ₹400 (clone)</li>
+                    <li><strong>GPIO:</strong> 14 digital pins, 6 analog inputs</li>
+                    <li><strong>Connectivity:</strong> None built-in (needs shield for WiFi/BLE)</li>
+                    <li><strong>Ecosystem:</strong> Massive — thousands of libraries and tutorials</li>
+                </ul>
+                <p>Arduino is the most beginner-friendly platform. You can get an LED blinking in 5 minutes. But it's limited — no built-in WiFi, low processing power, and 8-bit architecture means it struggles with complex tasks.</p>
+                <p><strong>Pick Arduino if:</strong> You're a beginner, the project is simple (sensors + LEDs + motors), and you want the fastest path to a working prototype.</p>
+
+                <h2>ESP32 — The IoT Powerhouse</h2>
+                <p><strong>Best for:</strong> IoT projects, wireless sensors, home automation, BLE devices.</p>
+                <ul>
+                    <li><strong>Processor:</strong> Dual-core Xtensa LX6 at 240MHz</li>
+                    <li><strong>Price:</strong> ₹400 - ₹800</li>
+                    <li><strong>GPIO:</strong> 24+ pins, touch sensors, DAC</li>
+                    <li><strong>Connectivity:</strong> Built-in WiFi + BLE 4.2</li>
+                    <li><strong>Ecosystem:</strong> Arduino IDE compatible, ESP-IDF for advanced users</li>
+                </ul>
+                <p>The ESP32 is the sweet spot for most engineering projects. It has built-in WiFi and Bluetooth, dual-core processing, and costs less than an Arduino Uno. You can program it using the Arduino IDE, so the learning curve is gentle.</p>
+                <p>It handles everything from simple sensor reading to real-time data streaming to the cloud. The ESP32 is what we use in most of our IoT projects at BuildYourProjects.</p>
+                <p><strong>Pick ESP32 if:</strong> You need WiFi/BLE, the project involves IoT/cloud connectivity, or you want the best price-to-performance ratio.</p>
+
+                <h2>STM32 — The Professional's Choice</h2>
+                <p><strong>Best for:</strong> Industrial projects, real-time control, complex firmware, production-grade systems.</p>
+                <ul>
+                    <li><strong>Processor:</strong> ARM Cortex-M (M0 to M7) up to 480MHz</li>
+                    <li><strong>Price:</strong> ₹200 - ₹1,500 (STM32F103 "Blue Pill" at ₹250)</li>
+                    <li><strong>GPIO:</strong> Varies by model — up to 140+ pins</li>
+                    <li><strong>Connectivity:</strong> Depends on model (some have Ethernet, USB, CAN)</li>
+                    <li><strong>Ecosystem:</strong> STM32CubeIDE, HAL libraries, FreeRTOS support</li>
+                </ul>
+                <p>STM32 is what professional embedded engineers use. It offers ARM Cortex-M performance, real-time capabilities, and industrial-grade peripherals. But the learning curve is steeper — you need to understand registers, HAL libraries, and RTOS concepts.</p>
+                <p>If you're aiming for a career in embedded systems, learning STM32 is essential. Most hiring managers look for STM32 experience on your resume.</p>
+                <p><strong>Pick STM32 if:</strong> You're serious about embedded systems, need real-time performance, or the project requires CAN bus, USB host, or complex peripherals.</p>
+
+                <h2>Quick Comparison Table</h2>
+                <p><strong>Arduino UNO:</strong> 8-bit, 16MHz, no WiFi/BLE, ₹500-2000 — Best for beginners</p>
+                <p><strong>ESP32:</strong> 32-bit dual-core, 240MHz, WiFi + BLE built-in, ₹400-800 — Best for IoT</p>
+                <p><strong>STM32 (Blue Pill):</strong> 32-bit ARM M3, 72MHz, no WiFi, ₹250 — Best for learning pro embedded</p>
+
+                <h2>Which One Should You Choose?</h2>
+                <ul>
+                    <li><strong>Class project or school robotics:</strong> Arduino (fastest to build)</li>
+                    <li><strong>IoT final year project:</strong> ESP32 (built-in WiFi/BLE, cheap, powerful)</li>
+                    <li><strong>Industrial or automotive project:</strong> STM32 (CAN bus, RTOS, reliability)</li>
+                    <li><strong>Learning embedded systems for a job:</strong> Start with Arduino, move to STM32</li>
+                </ul>
+                <p>The good news is they're all affordable. Buy all three and experiment. The skills transfer between them — once you understand one, picking up the others takes days, not weeks.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Want to master ESP32 and STM32?</strong> Our <a href="courses.html?enroll=Smart-Systems%20Masterclass%3A%20From%20ESP32%20to%20Robotics">Smart-Systems Masterclass</a> covers ESP32 sensor integration, BLE, WiFi, and ROS 2 from scratch. Enroll for ₹1,299.<br><br>
+                    <strong>Need a custom project built?</strong> We develop end-to-end embedded systems projects with full documentation. <a href="free-guide.html">Download our free Python Mini Project Kit</a> to get started.</p>
+                </div>
+            `
+        },
+        {
+            slug: "how-to-write-final-year-project-report-ieee-format",
+            title: "How to Write a Final Year Project Report (IEEE Format)",
+            excerpt: "Struggling with your project report? Here's a complete guide to writing an IEEE-format final year project report with templates, tips, and examples.",
+            date: "May 19, 2026",
+            tags: ["Project Report", "IEEE Format", "Final Year Project", "Documentation"],
+            readTime: "6 min read",
+            image: "images/blog-project-report.svg",
+            content: `
+                <h1>How to Write a Final Year Project Report (IEEE Format)</h1>
+                <div class="blog-meta"><span><i class="far fa-calendar"></i> May 19, 2026</span><span><i class="far fa-clock"></i> 6 min read</span></div>
+
+                <p>You've built a working project. But if the report is weak, your grade will be too. Most engineering students lose marks not because their project doesn't work — but because their documentation doesn't do it justice.</p>
+
+                <p>A well-written IEEE-format report can lift your grade by a full letter. Here's exactly how to write one.</p>
+
+                <h2>What is IEEE Format?</h2>
+                <p>IEEE (Institute of Electrical and Electronics Engineers) has a standard format for technical papers and project reports. Most engineering colleges in India expect this format for final year project reports. It includes specific guidelines for:</p>
+                <ul>
+                    <li>Two-column layout</li>
+                    <li>Font: Times New Roman, 10pt</li>
+                    <li>Title, author, abstract, keywords</li>
+                    <li>Sections: Introduction, Methodology, Results, Conclusion</li>
+                    <li>References in IEEE citation style</li>
+                </ul>
+
+                <h2>Structure of a Final Year Project Report</h2>
+
+                <h3>1. Title Page</h3>
+                <p>Your project title should be descriptive but concise (under 20 words). Include your name, college, guide name, and submission date. Use the exact format your college provides.</p>
+
+                <h3>2. Abstract (150-250 words)</h3>
+                <p>The abstract is the most important paragraph. Summarize the problem, your approach, key results, and conclusion. Write this last, after you've finished the entire report. Keep it single paragraph.</p>
+
+                <h3>3. Keywords</h3>
+                <p>List 4-8 keywords relevant to your project. Example: IoT, ESP32, Machine Learning, Sensor Network, Real-time Monitoring.</p>
+
+                <h3>4. Introduction</h3>
+                <p>Set the context. Explain the problem your project solves, why it matters, and what existing solutions lack. End with your project's objective and scope. Aim for 1-2 pages.</p>
+
+                <h3>5. Literature Survey</h3>
+                <p>Review 5-10 existing papers or projects related to yours. For each, mention what they did and what gap remains. This shows evaluators you've done your research. Cite every source using IEEE format: [1], [2], etc.</p>
+
+                <h3>6. System Design / Methodology</h3>
+                <p>This is the core of your report. Include:</p>
+                <ul>
+                    <li>Block diagram of the system</li>
+                    <li>Circuit schematic (if hardware project)</li>
+                    <li>Flowchart of the algorithm</li>
+                    <li>Component list with specifications</li>
+                    <li>Explanation of how each module works</li>
+                </ul>
+                <p>Use clear diagrams. Label everything. A good block diagram is worth 200 words of text.</p>
+
+                <h3>7. Implementation</h3>
+                <p>Describe how you built the project. Include code snippets (only important parts, not all 500 lines), PCB layouts, assembly steps, and challenges faced. Screenshots of your working prototype or app interface add credibility.</p>
+
+                <h3>8. Results and Discussion</h3>
+                <p>Show that your project works. Include:</p>
+                <ul>
+                    <li>Photos of the working prototype</li>
+                    <li>Test data in tables or graphs</li>
+                    <li>Comparison with existing solutions</li>
+                    <li>Performance metrics (accuracy, speed, power consumption)</li>
+                </ul>
+                <p>Don't just say "it works" — prove it with data.</p>
+
+                <h3>9. Conclusion and Future Work</h3>
+                <p>Summarize what you achieved, limitations of your project, and suggestions for future improvements. This shows evaluators you understand the bigger picture.</p>
+
+                <h3>10. References</h3>
+                <p>List all sources in IEEE citation format:</p>
+                <p>[1] A. Author, "Title of paper," in <em>Conference/Journal Name</em>, vol. x, no. y, pp. xx-xx, Year.</p>
+                <p>Use Google Scholar or IEEE Xplore to find proper citations.</p>
+
+                <h2>Pro Tips for Higher Marks</h2>
+                <ul>
+                    <li><strong>Start early:</strong> Don't write the report in one night. Write section by section as you build the project.</li>
+                    <li><strong>Use LaTeX:</strong> LaTeX produces professional-looking IEEE-format reports automatically. Overleaf.com has free IEEE templates.</li>
+                    <li><strong>Include a demo video link:</strong> Some colleges accept QR codes to a YouTube demo. This gives evaluators confidence your project actually works.</li>
+                    <li><strong>Proofread:</strong> Spelling and grammar mistakes create a bad impression. Use Grammarly or get a friend to review.</li>
+                    <li><strong>Stick to the template:</strong> Deviating from the IEEE format is the #1 reason for mark deductions.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Need help with your project report?</strong> We provide IEEE-format documentation, schematics, and viva support for all our projects. Browse our <a href="projects.html">ready-to-deploy projects</a> or <a href="https://wa.me/919447452039" target="_blank">contact us on WhatsApp</a> for custom project development with full documentation included.</p>
+                </div>
+            `
+        },
+        {
             slug: "top-5-ai-projects-final-year-engineering-students",
             title: "Top 5 AI Projects for Final Year Engineering Students in 2026",
             excerpt: "Looking for an AI project that stands out? Here are 5 final-year projects using computer vision, NLP, and deep learning that will impress evaluators and recruiters.",

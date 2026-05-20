@@ -26,6 +26,16 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://www.buildyourprojects.xyz/blog#arduino-vs-esp32-vs-stm32-microcontroller-guide</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.buildyourprojects.xyz/blog#how-to-write-final-year-project-report-ieee-format</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>https://www.buildyourprojects.xyz/blog#top-5-ai-projects-final-year-engineering-students</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>

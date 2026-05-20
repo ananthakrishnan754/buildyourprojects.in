@@ -57,6 +57,8 @@ All projects come with 100% working prototype, IEEE-format documentation, and vi
 - **Instagram:** https://instagram.com/shutter_bug07
 
 ## Blog
+- **Arduino vs ESP32 vs STM32: Which Microcontroller Should You Choose?** — https://www.buildyourprojects.xyz/blog#arduino-vs-esp32-vs-stm32-microcontroller-guide
+- **How to Write a Final Year Project Report (IEEE Format)** — https://www.buildyourprojects.xyz/blog#how-to-write-final-year-project-report-ieee-format
 - **Top 10 IoT Final Year Projects for ECE Students in 2026** — https://www.buildyourprojects.xyz/blog#top-10-iot-final-year-projects
 - **Python for Placements: What Engineering Students Need to Know** — https://www.buildyourprojects.xyz/blog#python-for-placements-guide
 - **ESP32 vs Raspberry Pi: Which is Better for Your Project?** — https://www.buildyourprojects.xyz/blog#esp32-vs-raspberry-pi-project-guide
