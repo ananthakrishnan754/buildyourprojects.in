@@ -40,6 +40,7 @@ All projects come with 100% working prototype, IEEE-format documentation, and vi
 - **AI Robotic Arm (Pick & Place)** — Contact for quote (4-DOF, OpenCV)
 - **Lidar Autonomous Wheelchair** — Contact for quote (SLAM, assistive tech)
 - **Lidar Surveillance Bot** — Contact for quote (2D/3D mapping, patrolling)
+- **TimeTraveller - AI Face Aging** — Contact for quote (Stable Diffusion, Flask, offline)
 - **Age-GAN Image Generator** — Contact for quote (GANs, deep learning)
 
 ## Services
