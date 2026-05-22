@@ -58,6 +58,7 @@ All projects come with 100% working prototype, IEEE-format documentation, and vi
 - **Instagram:** https://instagram.com/shutter_bug07
 
 ## Blog
+- **5 Skills Every Engineering Student Needs in 2026 to Get Placed** — https://www.buildyourprojects.xyz/blog#5-skills-every-engineering-student-needs-2026
 - **Arduino vs ESP32 vs STM32: Which Microcontroller Should You Choose?** — https://www.buildyourprojects.xyz/blog#arduino-vs-esp32-vs-stm32-microcontroller-guide
 - **How to Write a Final Year Project Report (IEEE Format)** — https://www.buildyourprojects.xyz/blog#how-to-write-final-year-project-report-ieee-format
 - **Top 10 IoT Final Year Projects for ECE Students in 2026** — https://www.buildyourprojects.xyz/blog#top-10-iot-final-year-projects

@@ -26,6 +26,11 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://www.buildyourprojects.xyz/blog#5-skills-every-engineering-student-needs-2026</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>https://www.buildyourprojects.xyz/blog#arduino-vs-esp32-vs-stm32-microcontroller-guide</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
