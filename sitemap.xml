@@ -26,6 +26,16 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://www.buildyourprojects.xyz/blog#how-to-choose-final-year-project-topic</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.buildyourprojects.xyz/blog#how-to-build-engineering-portfolio-placement</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>https://www.buildyourprojects.xyz/blog#5-skills-every-engineering-student-needs-2026</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
