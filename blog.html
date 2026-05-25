@@ -134,6 +134,142 @@
     <script>
     const blogPosts = [
         {
+            slug: "getting-started-with-ros2-robotics",
+            title: "Getting Started with ROS 2 for Robotics Projects: A Beginner's Guide",
+            excerpt: "Want to build robots? ROS 2 is the industry standard for robot programming. Here's a beginner-friendly guide to installing, learning, and building your first ROS 2 project.",
+            date: "May 26, 2026",
+            tags: ["ROS 2", "Robotics", "Raspberry Pi", "Linux", "Embedded Systems"],
+            readTime: "7 min read",
+            image: "images/blog-ros2-guide.svg",
+            content: `
+                <h1>Getting Started with ROS 2 for Robotics Projects: A Beginner's Guide</h1>
+                <div class="blog-meta"><span><i class="far fa-calendar"></i> May 26, 2026</span><span><i class="far fa-clock"></i> 7 min read</span></div>
+
+                <p>If you want to build modern robots — from autonomous rovers to robotic arms — you need to learn ROS 2. It's the industry standard used by companies like Amazon (Robotics), Boston Dynamics, and Tesla, and it's completely free and open source.</p>
+
+                <p>But ROS 2 has a steep learning curve. Most beginners give up within the first week because they don't know where to start. This guide will get you past that initial hump and running your first ROS 2 robot in one weekend.</p>
+
+                <h2>What is ROS 2?</h2>
+                <p>ROS (Robot Operating System) is a middleware framework for writing robot software. It's not an operating system — it's a set of libraries and tools that let different parts of your robot communicate with each other.</p>
+                <p>Think of it like this: your robot has a camera, a LiDAR, motors, and a computer. Each of these runs a separate program. ROS 2 lets these programs send messages to each other over "topics" — like a conversation bus where every component can publish and subscribe to data.</p>
+                <p>ROS 2 (the newer version) improves on the original ROS with better real-time support, improved security, and multi-platform compatibility. It's what you should learn in 2026 — ROS 1 is being phased out.</p>
+
+                <h2>Why Learn ROS 2?</h2>
+                <ul>
+                    <li><strong>Industry standard:</strong> Every robotics job posting mentions ROS. It's as fundamental to robotics as React is to web development.</li>
+                    <li><strong>Powerful ecosystem:</strong> SLAM, navigation, computer vision, moveit (arm control), Gazebo simulation — all available as ready-to-use packages.</li>
+                    <li><strong>Hardware abstraction:</strong> Write code once, run it on any robot. The same ROS 2 node that controls a physical rover can drive a simulated one in Gazebo.</li>
+                    <li><strong>Project value:</strong> A ROS 2-based project in your portfolio signals to recruiters that you can build real robots, not just blink LEDs.</li>
+                </ul>
+
+                <h2>Step 1: What You Need</h2>
+                <p><strong>Hardware (minimum):</strong></p>
+                <ul>
+                    <li>A computer running Ubuntu 22.04 or 24.04 (or a Raspberry Pi 4/5 with Ubuntu Server)</li>
+                    <li>4GB+ RAM, 20GB+ free disk</li>
+                    <li>Optional but recommended: Raspberry Pi 4/5, a robot chassis with motors, an RPLiDAR A1, an IMU sensor</li>
+                </ul>
+                <p><strong>Software (free):</strong></p>
+                <ul>
+                    <li>Ubuntu 22.04 LTS (RPi or PC)</li>
+                    <li>ROS 2 Humble (for Ubuntu 22.04) or ROS 2 Jazzy (for Ubuntu 24.04)</li>
+                    <li>Gazebo Ignition (simulator)</li>
+                </ul>
+
+                <h2>Step 2: Install ROS 2</h2>
+                <p>The official installation guide is at <code>docs.ros.org</code>, but here's the condensed version for Ubuntu 22.04 with ROS 2 Humble:</p>
+                <p><strong>1. Set up locale:</strong></p>
+                <div class="highlight-box" style="font-family: monospace; font-size: 0.85rem;">
+                    sudo apt update && sudo apt install locales<br>
+                    sudo locale-gen en_US en_US.UTF-8<br>
+                    sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+                </div>
+                <p><strong>2. Add ROS 2 repository:</strong></p>
+                <div class="highlight-box" style="font-family: monospace; font-size: 0.85rem;">
+                    sudo apt install software-properties-common<br>
+                    sudo add-apt-repository universe<br>
+                    sudo apt install curl -y<br>
+                    sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+                </div>
+                <p><strong>3. Install ROS 2 Humble:</strong></p>
+                <div class="highlight-box" style="font-family: monospace; font-size: 0.85rem;">
+                    sudo apt update && sudo apt install ros-humble-desktop
+                </div>
+                <p>The full desktop install is about 2GB. If you're on a Pi or a low-storage machine, use <code>ros-humble-ros-base</code> instead.</p>
+
+                <h2>Step 3: Understand the Core Concepts</h2>
+
+                <h3>Nodes</h3>
+                <p>A node is a single process that performs a specific task. For example, a camera node publishes images, a motor controller node subscribes to velocity commands. You can have dozens of nodes running on one robot.</p>
+
+                <h3>Topics</h3>
+                <p>Nodes communicate over topics. A topic is a named data bus. One node <strong>publishes</strong> data to a topic (like <code>/camera/image</code>), and other nodes <strong>subscribe</strong> to read that data. Topics are the primary way ROS 2 nodes talk to each other.</p>
+
+                <h3>Services</h3>
+                <p>Unlike topics (continuous stream), services are request-response. Node A asks Node B to do something and waits for a reply. Used for things like "take a photo now" or "move arm to position X."</p>
+
+                <h3>Actions</h3>
+                <p>For long-running tasks like "navigate to point B" or "pick up object," actions provide feedback during execution and a result when done. They're like services with progress updates.</p>
+
+                <h2>Step 4: Write Your First ROS 2 Publisher</h2>
+                <p>Here's a minimal Python node that publishes "Hello World" to a topic every second:</p>
+                <div class="highlight-box" style="font-family: monospace; font-size: 0.85rem;">
+                    import rclpy<br>
+                    from rclpy.node import Node<br>
+                    from std_msgs.msg import String<br><br>
+                    class HelloPublisher(Node):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;def __init__(self):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super().__init__('hello_publisher')<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pub = self.create_publisher(String, 'hello_topic', 10)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.timer = self.create_timer(1.0, self.timer_callback)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;def timer_callback(self):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg = String()<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg.data = 'Hello, ROS 2!'<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.pub.publish(msg)<br><br>
+                    rclpy.init(args=None)<br>
+                    node = HelloPublisher()<br>
+                    rclpy.spin(node)
+                </div>
+                <p>Save this as <code>hello_pub.py</code>, run <code>python3 hello_pub.py</code>, and in another terminal run <code>ros2 topic echo /hello_topic</code> to see the messages.</p>
+
+                <h2>Step 5: Your First Project — Simulated Rover</h2>
+                <p>The fastest way to learn ROS 2 is to simulate a robot before building the real thing. Install Gazebo and the TurtleBot3 packages:</p>
+                <div class="highlight-box" style="font-family: monospace; font-size: 0.85rem;">
+                    sudo apt install ros-humble-gazebo-ros-pkgs ros-humble-turtlebot3*<br>
+                    export TURTLEBOT3_MODEL=waffle<br>
+                    ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+                </div>
+                <p>In another terminal, run the keyboard teleoperation node:</p>
+                <div class="highlight-box" style="font-family: monospace; font-size: 0.85rem;">
+                    ros2 run turtlebot3_teleop teleop_keyboard
+                </div>
+                <p>You're now driving a simulated robot in a 3D world. This is the same ROS 2 stack you'd use for a real robot — change one launch file and the same code runs on your physical rover.</p>
+
+                <h2>What to Learn Next</h2>
+                <ul>
+                    <li><strong>SLAM:</strong> Use LiDAR and odometry to build a map of an unknown environment</li>
+                    <li><strong>Navigation (Nav2):</strong> Give your robot a goal and let it pathfind autonomously</li>
+                    <li><strong>Computer Vision:</strong> Integrate OpenCV and YOLO for object detection from your robot's camera</li>
+                    <li><strong>URDF:</strong> Create a 3D model of your custom robot for simulation</li>
+                </ul>
+
+                <h2>Recommended Hardware for ROS 2</h2>
+                <p>If you want to go from simulation to a real robot:</p>
+                <ul>
+                    <li><strong>Raspberry Pi 5 (8GB):</strong> Runs ROS 2 + camera processing + basic navigation</li>
+                    <li><strong>RPLiDAR A1:</strong> Budget-friendly 2D LiDAR for SLAM — ₹6,000-8,000</li>
+                    <li><strong>Arduino/ESP32 + motor driver:</strong> For real-time motor control, connected to ROS 2 via serial or WiFi</li>
+                    <li><strong>IMU (MPU6050):</strong> For odometry and orientation estimation</li>
+                </ul>
+                <p>A common architecture: Raspberry Pi runs ROS 2 (high-level planning + vision), ESP32 handles motor control and sensor reading (real-time), and they talk over a ROS 2 topic serialized over UART or WiFi.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Want to build a real ROS 2 robot?</strong> Our <a href="courses.html">Smart-Systems Masterclass</a> (₹1,299) teaches ESP32, ROS 2, sensor fusion, and robot building from scratch. You'll go from zero to a working autonomous rover.<br><br>
+                    <strong>Need a ready-made robotics project?</strong> Browse our <a href="projects.html">project catalog</a> for autonomous rovers, robotic arms, and SLAM-based systems with full documentation. <a href="https://wa.me/919447452039" target="_blank">WhatsApp us</a> to discuss your project.</p>
+                </div>
+            `
+        },
+        {
             slug: "how-to-choose-final-year-project-topic",
             title: "How to Choose the Right Final Year Project Topic in 2026",
             excerpt: "Picking the wrong project wastes months. Here's a framework to choose a final year project topic that gets you good grades and a job offer.",
