@@ -1,0 +1,16 @@
+<svg width="400" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" fill="#0F172A"/>
+  <polyline points="40,160 100,140 160,100 220,60 280,40 340,30" stroke="#10B981" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <text x="340" y="24" font-family="Inter, sans-serif" font-weight="800" font-size="12" fill="#34D399" text-anchor="end">$6.7M ARR</text>
+  <rect x="100" y="100" width="30" height="40" rx="4" fill="#2563EB" opacity="0.15" stroke="#2563EB" stroke-width="1.5"/>
+  <polygon points="107,100 123,100 115,85" fill="#2563EB" opacity="0.3"/>
+  <rect x="108" y="108" width="14" height="3" rx="1" fill="#2563EB" opacity="0.3"/>
+  <rect x="108" y="115" width="14" height="3" rx="1" fill="#2563EB" opacity="0.3"/>
+  <rect x="108" y="122" width="14" height="3" rx="1" fill="#2563EB" opacity="0.3"/>
+  <polygon points="110,140 120,140 115,155" fill="#F59E0B" opacity="0.5"/>
+  <rect x="240" y="100" width="30" height="38" rx="3" fill="#8B5CF6" opacity="0.15" stroke="#8B5CF6" stroke-width="1.5"/>
+  <line x1="248" y1="110" x2="262" y2="110" stroke="#8B5CF6" stroke-width="1.5" opacity="0.4"/>
+  <line x1="248" y1="117" x2="262" y2="117" stroke="#8B5CF6" stroke-width="1.5" opacity="0.4"/>
+  <line x1="248" y1="124" x2="258" y2="124" stroke="#8B5CF6" stroke-width="1.5" opacity="0.4"/>
+  <text x="200" y="180" font-family="Inter, sans-serif" font-weight="600" font-size="9" fill="#64748B" text-anchor="middle">COCONOTE CASE STUDY</text>
+</svg>

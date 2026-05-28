@@ -134,6 +134,186 @@
     <script>
     const blogPosts = [
         {
+            slug: "ncd-predict-ml-health-screening-kerala",
+            title: "NCD-Predict: How I Built a Diabetes & Hypertension Risk Prediction System for Kerala",
+            excerpt: "A non-invasive ML system predicting diabetes and hypertension risk for Kerala's 35+ population using LightGBM and SHAP explainable AI — built for ASHA/Kudumbashree health workers.",
+            date: "May 29, 2026",
+            tags: ["Machine Learning", "Healthcare", "LightGBM", "FastAPI", "Explainable AI", "Python"],
+            readTime: "6 min read",
+            image: "images/blog-ncd-predict.svg",
+            content: `
+                <h1>NCD-Predict: How I Built a Diabetes & Hypertension Risk Prediction System for Kerala</h1>
+                <div class="blog-meta"><span><i class="far fa-calendar"></i> May 29, 2026</span><span><i class="far fa-clock"></i> 6 min read</span></div>
+
+                <p>Non-communicable diseases (NCDs) — diabetes, hypertension, heart disease — account for 65% of all deaths in Kerala. The state's ASHA workers and Kudumbashree volunteers screen lakhs of people every year, but most screening is manual and limited to basic BP and blood sugar checks.</p>
+
+                <p>I built <strong>NCD-Predict</strong>, an ML-powered risk prediction system that estimates diabetes and hypertension risk from <strong>13 non-invasive features</strong> — no blood tests, no lab equipment, just simple measurements a health worker can take in the field.</p>
+
+                <h2>The Problem</h2>
+                <p>Kerala has the highest NCD burden in India. The state runs mass screening camps through ASHA workers, but:</p>
+                <ul>
+                    <li>Blood tests are expensive and slow (₹200-500 per person)</li>
+                    <li>Many people don't show up for follow-up lab visits</li>
+                    <li>Health workers have no way to prioritize who needs immediate attention</li>
+                    <li>There's no centralized risk scoring — every camp starts from zero</li>
+                </ul>
+                <p>A non-invasive risk score could let health workers triage: green (low risk, annual check-up), yellow (moderate, refer to clinic), red (high, needs immediate testing).</p>
+
+                <h2>What I Built</h2>
+                <p><strong>NCD-Predict</strong> is a complete end-to-end ML system:</p>
+                <ul>
+                    <li><strong>Dual-target prediction</strong> — Diabetes (ROC-AUC 0.76) and Hypertension (ROC-AUC 0.75) from the same set of 13 features</li>
+                    <li><strong>Explainable AI</strong> — SHAP-based risk factor breakdown for every prediction (so the health worker can say "your risk is high because of family history + high waist circumference")</li>
+                    <li><strong>Mobile-friendly web UI</strong> — Designed for low-end Android phones used by ASHA workers</li>
+                    <li><strong>Offline-capable</strong> — The form works without internet; syncs when connected</li>
+                    <li><strong>Wearable integration</strong> — Accepts Google Fit / Health Connect data</li>
+                </ul>
+
+                <h2>Tech Stack</h2>
+                <p><strong>Backend:</strong> FastAPI (async) + SQLAlchemy 2.0 + PostgreSQL 16 + JWT auth</p>
+                <p><strong>ML:</strong> LightGBM with Optuna hyperparameter tuning, SHAP explainability, scikit-learn pipeline</p>
+                <p><strong>Frontend:</strong> Vanilla HTML/CSS/JS — zero build tools, works on any browser</p>
+                <p><strong>Infra:</strong> Docker Compose, Alembic migrations, GitHub Actions CI</p>
+
+                <h2>Model Architecture</h2>
+                <p>I trained separate LightGBM classifiers for diabetes and hypertension on synthetic data (10K rows, calibrated to Kerala prevalence from NFHS-5). The 13 non-invasive features include:</p>
+                <ul>
+                    <li>Age, BMI, waist circumference</li>
+                    <li>Family history of diabetes/hypertension</li>
+                    <li>Resting heart rate, systolic/diastolic BP</li>
+                    <li>Physical activity level, diet score</li>
+                    <li>Smoking, alcohol consumption</li>
+                    <li>Sleep hours, stress level</li>
+                </ul>
+                <p>Top features for diabetes: family history, BMI, waist circumference, resting HR, age. LightGBM handled missing values natively (important for field data) and gave the best AUC vs inference speed trade-off.</p>
+
+                <h2>Key Engineering Decisions</h2>
+                <ul>
+                    <li><strong>Synthetic data with realistic noise:</strong> Real health screening data is hard to get. I built a generator that models Kerala's actual disease prevalence and adds realistic measurement noise.</li>
+                    <li><strong>SHAP for trust:</strong> A black-box ML prediction for someone's health is useless. SHAP shows exactly which features drove the risk score — doctors can verify the logic.</li>
+                    <li><strong>JWT auth + history:</strong> Each health worker logs in, submits predictions, and can track a patient's risk over time. The backend stores every prediction with full SHAP values.</li>
+                </ul>
+
+                <h2>Results</h2>
+                <ul>
+                    <li>Diabetes: ROC-AUC 0.758, PR-AUC 0.458, Sensitivity@90%Specificity 0.401</li>
+                    <li>Hypertension: ROC-AUC 0.748, PR-AUC 0.528, Sensitivity@90%Specificity 0.362</li>
+                    <li>35 passing pytest tests covering model inference, API endpoints, auth, and error handling</li>
+                </ul>
+                <p>The models are designed for screening, not diagnosis — the goal is to identify the 10-15% of people who need a lab test, not to replace doctors.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Want to deploy an ML project like this?</strong> Our <a href="courses.html">AI-Powered Developer course</a> (₹499) teaches you to build and deploy ML APIs. Need a custom ML system built? <a href="https://wa.me/919447452039" target="_blank">WhatsApp us</a>.<br><br>
+                    <strong>GitHub:</strong> <a href="https://github.com/ananthakrishnan754/ncd-prediction-ML-model" target="_blank">github.com/ananthakrishnan754/ncd-prediction-ML-model</a></p>
+                </div>
+            `
+        },
+        {
+            slug: "top-5-ai-tools-every-engineering-student-should-know",
+            title: "5 Free AI Tools Every Engineering Student Should Know in 2026",
+            excerpt: "AI tools are changing how engineering students learn, code, and build projects. Here are 5 free tools that will save you time and make your projects better.",
+            date: "May 28, 2026",
+            tags: ["AI", "Tools", "Productivity", "Engineering", "Free Resources"],
+            readTime: "5 min read",
+            image: "images/blog-ai-tools.svg",
+            content: `
+                <h1>5 Free AI Tools Every Engineering Student Should Know in 2026</h1>
+                <div class="blog-meta"><span><i class="far fa-calendar"></i> May 28, 2026</span><span><i class="far fa-clock"></i> 5 min read</span></div>
+
+                <p>The right AI tool can turn a weekend project into a portfolio-worthy demo. But with hundreds of AI tools launching every month, it's easy to waste time on gimmicks.</p>
+
+                <p>Here are 5 free AI tools that actually help engineering students build faster, learn better, and stand out in placements.</p>
+
+                <h2>1. Valossa Assistant — AI That Watches Your Videos</h2>
+                <p><strong>What it does:</strong> Upload any video and chat with an AI that has watched it. Ask "find me clips where the robot moves left" or "summarize this lecture" — it returns timestamps, clips, and transcripts instantly.</p>
+                <p><strong>Why students need it:</strong> If you record project demos, lab experiments, or presentations, Valossa Assistant saves hours of manual re-watching. It understands visual content, audio, and speech — making it one of the most powerful free video AI tools available.</p>
+                <p><strong>Free tier:</strong> Generous free trial with upload and analysis credits.</p>
+
+                <h2>2. GitHub Copilot (Free for Students)</h2>
+                <p><strong>What it does:</strong> AI pair programmer that suggests code as you type. Works in VS Code, JetBrains, and terminal.</p>
+                <p><strong>Why students need it:</strong> GitHub Copilot is free for verified students through the GitHub Student Developer Pack. It cuts down boilerplate code by 50% and helps you learn syntax by showing you real-time examples. For embedded projects, it understands Arduino, ESP32, and STM32 code patterns.</p>
+                <p><strong>Get it:</strong> education.github.com/pack — verify with your college email.</p>
+
+                <h2>3. Google Colab + Gemini API</h2>
+                <p><strong>What it does:</strong> Free cloud notebooks with GPU access, plus free Gemini API credits for text generation, analysis, and vision tasks.</p>
+                <p><strong>Why students need it:</strong> Train small ML models on free GPUs (T4s), analyze datasets, and prototype AI features without spending a rupee. The Gemini API gives you 60+ requests per minute free — enough to build a working AI project.</p>
+                <p><strong>Use it for:</strong> Final year ML projects, data analysis, prototyping AI features for hardware projects.</p>
+
+                <h2>4. Figma (Free for Students)</h2>
+                <p><strong>What it does:</strong> Professional UI/UX design tool with AI-powered features for layout, prototyping, and design systems.</p>
+                <p><strong>Why students need it:</strong> If your project has a dashboard, mobile app, or web interface, Figma helps you design it properly. The free education plan includes premium features. A well-designed UI can make the difference between an A-grade and a B-grade project.</p>
+                <p><strong>Pro tip:</strong> Use Figma's AI features to generate UI variants and icons automatically.</p>
+
+                <h2>5. Notion AI (Free with Edu Email)</h2>
+                <p><strong>What it does:</strong> All-in-one workspace with built-in AI for writing, summarizing, and organizing. Free premium plan for students.</p>
+                <p><strong>Why students need it:</strong> Use it to plan your project timeline, write your project report draft, summarize research papers, and organize references. The AI writing assistant helps you write clearer documentation and emails to professors.</p>
+                <p><strong>Use it for:</strong> Project planning, report writing, research paper summaries, placement prep notes.</p>
+
+                <h2>Bonus: Coconote — AI Note-Taking</h2>
+                <p>Coconote is an AI-powered note-taking app that was recently acquired by Quizlet for $6.7M ARR. It generates lecture notes, flashcards, and quizzes from recordings. While the premium version costs $99/year, the free tier is useful for students who want to test AI-powered study tools.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Want to build your own AI tool?</strong> Our <a href="courses.html">AI-Powered Developer course</a> (₹499) teaches you to build AI-powered apps and tools from scratch. Or browse our <a href="projects.html">pre-built AI projects</a> for ready-to-deploy systems with full documentation. <a href="https://wa.me/919447452039" target="_blank">WhatsApp us</a> to discuss your project.</p>
+                </div>
+            `
+        },
+        {
+            slug: "ai-video-agents-valossa-assistant",
+            title: "AI Video Agents Are Here: How Valossa Assistant Is Changing Video Editing",
+            excerpt: "Upload a video and chat with AI that has watched it. Valossa Assistant is a new breed of agentic AI that understands visual content, audio, and speech — and clips video on command.",
+            date: "May 27, 2026",
+            tags: ["AI", "Video Editing", "Agentic AI", "Technology", "Tools"],
+            readTime: "5 min read",
+            image: "images/blog-ai-video-agents.svg",
+            content: `
+                <h1>AI Video Agents Are Here: How Valossa Assistant Is Changing Video Editing</h1>
+                <div class="blog-meta"><span><i class="far fa-calendar"></i> May 27, 2026</span><span><i class="far fa-clock"></i> 5 min read</span></div>
+
+                <p>Video editing has always been a time-consuming skill. You shoot 30 minutes of footage, scrub through the timeline, find the good parts, trim, arrange, export. For engineering students recording project demos or lab work, this process alone can take hours.</p>
+
+                <p>Valossa Assistant changes that. It's an <strong>agentic AI</strong> — you upload a video, and then you chat with an AI that has actually watched and understood the content.</p>
+
+                <h2>What Makes It Different</h2>
+                <p>Most "AI video tools" only generate transcripts or suggest cuts based on silence detection. Valossa's AI uses a multimodal language model that understands <strong>visual scenes, audio, speech, text, and even mood</strong> simultaneously.</p>
+                <p>This means you can ask natural-language questions like:</p>
+                <ul>
+                    <li>"Find me clips where the robot arm picks up an object"</li>
+                    <li>"Show me every time the LED changes color"</li>
+                    <li>"Create a 30-second highlight reel from the best moments"</li>
+                    <li>"Does this video contain any sensitive content?"</li>
+                </ul>
+                <p>The AI returns exact timestamps, clips, and even rough cuts — no timeline scrubbing required.</p>
+
+                <h2>How It Works Under the Hood</h2>
+                <p>Valossa Assistant runs on Valossa AI Gen 7, their latest multimodal model. When you upload a video, the AI:</p>
+                <ul>
+                    <li><strong>Watches</strong> every frame — identifies objects, people, text, actions, and scenes</li>
+                    <li><strong>Listens</strong> to the audio — transcribes speech, detects music, sound effects, silence</li>
+                    <li><strong>Analyzes</strong> structure — identifies chapters, key moments, transitions</li>
+                    <li><strong>Understands</strong> context — connects visual and audio information to answer questions</li>
+                </ul>
+                <p>All of this happens server-side. You get back transcripts, captions, content reports, metadata, and searchable clip segments.</p>
+
+                <h2>Why Engineering Students Should Care</h2>
+                <p>Video documentation is becoming essential for engineering projects. Colleges now ask for demo videos, IEEE reports often include QR codes to video demonstrations, and placement interviews increasingly expect you to show (not just tell) what you built.</p>
+                <p>With Valossa Assistant, you can:</p>
+                <ul>
+                    <li>Record a 20-minute project demo and extract a 2-minute highlight reel in minutes</li>
+                    <li>Generate accurate captions and transcripts for your IEEE report submission</li>
+                    <li>Find specific scenes in hours of lab footage without manual scrubbing</li>
+                    <li>Create professional-looking project videos for your portfolio</li>
+                </ul>
+
+                <h2>The Bigger Picture: Agentic AI</h2>
+                <p>Valossa Assistant is part of a growing trend called <strong>agentic AI</strong> — AI systems that don't just generate text or images, but take action on your behalf. Instead of you using a tool to edit video, you tell an AI agent what you want and it does the work.</p>
+                <p>This is the same paradigm shift powering AI coding assistants, AI research agents, and AI design tools. Learning to work with agentic AI is becoming a skill in itself — one that will be as fundamental as using Google or Excel within a few years.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Want to explore agentic AI for your projects?</strong> Our <a href="courses.html">Build-a-Bot course</a> (₹999) teaches you to build AI agents and LLM-powered tools from scratch. Or check out our <a href="projects.html">project catalog</a> for ready-to-deploy AI systems. <a href="https://wa.me/919447452039" target="_blank">WhatsApp us</a> to discuss your idea.</p>
+                </div>
+            `
+        },
+        {
             slug: "getting-started-with-ros2-robotics",
             title: "Getting Started with ROS 2 for Robotics Projects: A Beginner's Guide",
             excerpt: "Want to build robots? ROS 2 is the industry standard for robot programming. Here's a beginner-friendly guide to installing, learning, and building your first ROS 2 project.",
@@ -266,6 +446,52 @@
                 <div class="highlight-box">
                     <p><strong>Want to build a real ROS 2 robot?</strong> Our <a href="courses.html">Smart-Systems Masterclass</a> (₹1,299) teaches ESP32, ROS 2, sensor fusion, and robot building from scratch. You'll go from zero to a working autonomous rover.<br><br>
                     <strong>Need a ready-made robotics project?</strong> Browse our <a href="projects.html">project catalog</a> for autonomous rovers, robotic arms, and SLAM-based systems with full documentation. <a href="https://wa.me/919447452039" target="_blank">WhatsApp us</a> to discuss your project.</p>
+                </div>
+            `
+        },
+        {
+            slug: "coconote-67m-arr-case-study-lessons",
+            title: "How This AI Note-Taking App Hit $6.7M ARR in 2 Years (and What Students Can Learn)",
+            excerpt: "Coconote bootstrapped to $6.7M ARR with zero ad spend and got acquired by Quizlet in 2 years. Here are the key lessons for engineering students building AI products.",
+            date: "May 25, 2026",
+            tags: ["SaaS", "Startup", "AI", "Entrepreneurship", "Case Study"],
+            readTime: "6 min read",
+            image: "images/blog-coconote-case-study.svg",
+            content: `
+                <h1>How This AI Note-Taking App Hit $6.7M ARR in 2 Years (and What Students Can Learn)</h1>
+                <div class="blog-meta"><span><i class="far fa-calendar"></i> May 25, 2026</span><span><i class="far fa-clock"></i> 6 min read</span></div>
+
+                <p>Coconote is an AI-powered note-taking app for students. Within 45 days of launch, it hit $100K ARR. In 4 months: $1M. In 5 months: $2M. In under 2 years: <strong>$6.7M ARR and an acquisition by Quizlet</strong> — all without spending a single dollar on ads.</p>
+
+                <p>Co-founders Brett Bauman and Zack Hargett built this with a small team, a premium pricing strategy, and a creator-led growth engine. Here's what engineering students can learn from their journey.</p>
+
+                <h2>Lesson 1: Charge Premium from Day One</h2>
+                <p>Coconote launched with a <strong>"hard paywall"</strong> — users got one free note, then had to subscribe. The price? $99.99 per year. They later raised it to $129.99 and conversion rates actually improved.</p>
+                <p>Conventional wisdom says students won't pay for apps. Coconote proved the opposite: <strong>a higher price built trust</strong>. Users assumed a paid product was serious and reliable.</p>
+                <p><strong>For student projects:</strong> If you build a tool or product, don't undervalue it. Premium pricing signals quality. Whether it's a freelance project or a product you're building, charge what it's worth.</p>
+
+                <h2>Lesson 2: Hire Creators, Not Influencers</h2>
+                <p>Instead of paying influencers with millions of followers, Coconote found <strong>content creators with 5-10K followers</strong> who produced excellent videos. They built a team of 10-25 part-time creators who framed the product as a solution to a real problem — "never miss a detail in class."</p>
+                <p>The key insight: in the age of algorithmic distribution, <strong>content quality matters more than audience size</strong>. A great video from a 5K creator can outperform a bad video from a 500K influencer.</p>
+                <p><strong>For student projects:</strong> Don't wait for a big audience to share your work. Make great demo videos, write clear GitHub READMEs, and post on LinkedIn. A single well-made post can reach thousands if the algorithm picks it up.</p>
+
+                <h2>Lesson 3: Trial Extensions Beat Discounts</h2>
+                <p>When users tried to cancel, Coconote tested two strategies: offering a discount or offering a 7-day trial extension. The trial extension won — they retained <strong>25% of canceling users</strong>.</p>
+                <p>Why? Price wasn't the objection. Users just hadn't experienced enough value yet. More time with the product solved that better than a discount ever could.</p>
+                <p><strong>For student projects:</strong> When someone says "no" to your project idea or service, dig deeper. Is it really price, or do they need to see more proof? Sometimes the answer is just giving them room to experience what you've built.</p>
+
+                <h2>Lesson 4: Remove Friction Ruthlessly</h2>
+                <p>Coconote moved the login screen <strong>after the paywall</strong>. Users entered their payment info first, then created an account. This removed the "do I really need another account?" friction point and increased conversion significantly.</p>
+                <p>They also extended onboarding to <strong>15 screens</strong> — not fewer. Each screen increased commitment and helped users understand the product's value before hitting the paywall.</p>
+                <p><strong>For student projects:</strong> Watch where users drop off in your project demo or signup flow. Every extra click, every unnecessary step, kills engagement. Simplify ruthlessly.</p>
+
+                <h2>Lesson 5: Momentum Is Oxygen</h2>
+                <p>"Momentum is like oxygen for a startup," Zack Hargett said. Coconote focused on getting revenue fast — from day one. That early cash gave them confidence and capital to reinvest in growth.</p>
+                <p>A bootstrapped company that makes money early can outlast funded competitors because they're not dependent on investors.</p>
+                <p><strong>For student projects:</strong> The same principle applies to your career. Get your first project done. Get your first freelance client. Get your first GitHub star. Each win creates the momentum for the next — and eventually, you're building something significant.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Want to build your own AI product?</strong> Our <a href="courses.html">AI-Powered Developer course</a> (₹499) teaches you to build AI apps and tools. Or learn robotics and embedded systems with the <a href="courses.html">Smart-Systems Masterclass</a> (₹1,299). <a href="https://wa.me/919447452039" target="_blank">WhatsApp us</a> to discuss your project idea.</p>
                 </div>
             `
         },
