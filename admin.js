@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const target = tab.getAttribute('data-tab');
-            
+
             tabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
 
@@ -22,17 +22,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             });
 
-            if (target === 'registrations') fetchRegistrations();
             if (target === 'manage-projects') renderAdminProjects();
-            if (target === 'manage-courses') renderAdminCourses();
         });
     });
 
     // Initial Load
-    fetchRegistrations();
-
-    // Refresh Registrations
-    document.getElementById('refresh-registrations').addEventListener('click', fetchRegistrations);
+    renderAdminProjects();
 
     // Modal Logic
     const projectModal = document.getElementById('project-modal');
@@ -71,38 +66,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 });
 
-async function fetchRegistrations() {
-    const tableBody = document.getElementById('registrations-table-body');
-    tableBody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin"></i> Fetching records...</td></tr>';
-
-    try {
-        const snapshot = await db.collection("course_registrations").orderBy("createdAt", "desc").get();
-        if (snapshot.empty) {
-            tableBody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 40px;">No registrations found.</td></tr>';
-            return;
-        }
-
-        tableBody.innerHTML = '';
-        snapshot.forEach(doc => {
-            const data = doc.data();
-            const date = data.createdAt ? data.createdAt.toDate().toLocaleDateString() : 'N/A';
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${date}</td>
-                <td><strong>${data.name}</strong></td>
-                <td>${data.email}<br><small>${data.phone}</small></td>
-                <td>${data.college}</td>
-                <td><span class="tag">${data.courseName}</span></td>
-                <td><span class="status-pill ${['verified', 'paid', 'completed_by_user'].includes(data.paymentStatus) ? 'status-verified' : 'status-pending'}">${data.paymentStatus || 'pending'}</span></td>
-            `;
-            tableBody.appendChild(row);
-        });
-    } catch (error) {
-        console.error("Error fetching registrations:", error);
-        tableBody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: red; padding: 40px;">Error loading data. Make sure Firebase rules allow reading.</td></tr>';
-    }
-}
-
 function renderAdminProjects() {
     const grid = document.getElementById('admin-projects-grid');
     grid.innerHTML = '';
@@ -121,32 +84,6 @@ function renderAdminProjects() {
             </div>
             <div class="admin-actions">
                 <button class="btn-danger" onclick="deleteItem('projects', '${proj.id || index}')"><i class="fas fa-trash"></i> Delete</button>
-            </div>
-        `;
-        grid.appendChild(card);
-    });
-}
-
-function renderAdminCourses() {
-    const grid = document.getElementById('admin-courses-grid');
-    grid.innerHTML = '';
-
-    courses.forEach((course, index) => {
-        const card = document.createElement('div');
-        card.className = 'glass-card';
-        card.style.padding = '16px';
-        card.innerHTML = `
-            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px;">
-                <div style="width: 50px; height: 50px; background: var(--primary-color); color: white; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
-                    <i class="fas fa-book"></i>
-                </div>
-                <div>
-                    <h4 style="margin: 0;">${course.title}</h4>
-                    <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">₹${course.price}</p>
-                </div>
-            </div>
-            <div class="admin-actions">
-                <button class="btn-danger" onclick="deleteItem('courses', '${course.id || index}')"><i class="fas fa-trash"></i> Delete</button>
             </div>
         `;
         grid.appendChild(card);
