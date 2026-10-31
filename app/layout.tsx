@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { SmoothScroll } from "@/components/smooth-scroll";
+import { MotionProvider } from "@/components/motion-provider";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -76,7 +76,7 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <SmoothScroll />
+        <MotionProvider />
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />

@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaqAccordion } from "@/components/faq-accordion";
-import { ProductVisual } from "@/components/product-card";
+import { ProductDemo } from "@/components/product-demo";
+import { ProductVisual } from "@/components/product-visual";
+import { Reveal, RevealGroup } from "@/components/reveal";
 import { TodoSlot } from "@/components/todo-slot";
 import { formatPrice, getProduct, products } from "@/data/products";
 import { site, whatsappLink } from "@/data/site";
@@ -145,18 +147,38 @@ export default async function ProductDetailPage({ params }: PageProps) {
         </div>
       </section>
 
+      <section className="section border-y border-stroke bg-surface">
+        <div className="container-site">
+          <Reveal className="max-w-2xl">
+            <p className="type-label text-muted">The demo</p>
+            <h2 className="type-h2 mt-3">Three beats, one pack.</h2>
+            <p className="mt-3 type-body text-muted">
+              On a wide screen the demo pins and steps through code, report and
+              viva as you scroll. On mobile the same beats are a tab set, with
+              no pin and no lost content.
+            </p>
+          </Reveal>
+          <div className="mt-8">
+            <ProductDemo slug={product.slug} />
+          </div>
+        </div>
+      </section>
+
       <section className="section">
         <div className="container-site grid gap-10 lg:grid-cols-[5fr_7fr] lg:gap-16">
-          <div>
+          <Reveal>
             <p className="type-label text-muted">What you get</p>
             <h2 className="type-h2 mt-3">{product.name} contents</h2>
             <p className="mt-3 type-body-sm text-muted">
               The exact pack. Final sample pages and any format list will be
               published before checkout opens.
             </p>
-          </div>
+          </Reveal>
 
-          <ol className="divide-y divide-stroke border-y border-stroke">
+          <RevealGroup
+            as="ol"
+            className="divide-y divide-stroke border-y border-stroke"
+          >
             {product.deliverables.map((item, index) => (
               <li key={item.title} className="flex gap-4 py-5">
                 <span className="type-label flex size-8 shrink-0 items-center justify-center rounded-full border border-stroke-strong text-muted">
@@ -168,13 +190,13 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 </div>
               </li>
             ))}
-          </ol>
+          </RevealGroup>
         </div>
       </section>
 
       <section className="section border-y border-stroke bg-surface">
         <div className="container-site grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <div>
+          <Reveal>
             <p className="type-label text-muted">Best for</p>
             <h2 className="type-h2 mt-3">Who this is for</h2>
             <ul className="mt-6 space-y-3">
@@ -188,9 +210,9 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal>
             <p className="type-label text-muted">Sample pages</p>
             <h2 className="type-h2 mt-3">Show the deliverable</h2>
             <div className="mt-6">
@@ -200,13 +222,13 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 the pack instead of pretending to show a finished product.
               </TodoSlot>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="section">
         <div className="container-site grid gap-10 lg:grid-cols-[5fr_7fr] lg:gap-16">
-          <div>
+          <Reveal>
             <p className="type-label text-muted">FAQ</p>
             <h2 className="type-h2 mt-3">{product.name} questions</h2>
             <p className="mt-3 type-body-sm text-muted">
@@ -221,7 +243,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
               </a>
               .
             </p>
-          </div>
+          </Reveal>
           <FaqAccordion items={product.faq} />
         </div>
       </section>
@@ -230,7 +252,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         <div className="container-site py-14 md:py-20">
           <p className="type-label text-muted">Keep browsing</p>
           <h2 className="type-h2 mt-3">The other packs</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <RevealGroup className="mt-6 grid gap-4 md:grid-cols-2">
             {related.map((item) => (
               <Link
                 key={item.slug}
@@ -246,7 +268,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 </span>
               </Link>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 

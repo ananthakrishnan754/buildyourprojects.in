@@ -452,6 +452,7 @@
   }
 
   .chip[aria-pressed="true"],
+  .chip[aria-selected="true"],
   .chip[data-active="true"] {
     border-color: var(--accent);
     background-color: color-mix(in srgb, var(--accent) 12%, transparent);
@@ -612,4 +613,267 @@ html.sheet-open body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion layer (Phase 3b)                                             */
+/* ------------------------------------------------------------------ */
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+}
+
+[data-reveal="in"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--dur-scroll) var(--ease-out),
+    transform var(--dur-scroll) var(--ease-out);
+}
+
+[data-reveal-group] > * {
+  --reveal-order: 0;
+}
+
+[data-reveal-group] > *:nth-child(2) {
+  --reveal-order: 1;
+}
+[data-reveal-group] > *:nth-child(3) {
+  --reveal-order: 2;
+}
+[data-reveal-group] > *:nth-child(4) {
+  --reveal-order: 3;
+}
+[data-reveal-group] > *:nth-child(5) {
+  --reveal-order: 4;
+}
+[data-reveal-group] > *:nth-child(6) {
+  --reveal-order: 5;
+}
+[data-reveal-group] > *:nth-child(7) {
+  --reveal-order: 6;
+}
+[data-reveal-group] > *:nth-child(n + 8) {
+  --reveal-order: 7;
+}
+
+[data-reveal-group="hidden"] > * {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+}
+
+[data-reveal-group="in"] > * {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--dur-scroll) var(--ease-out),
+    transform var(--dur-scroll) var(--ease-out);
+  transition-delay: calc(var(--reveal-order, 0) * 50ms);
+}
+
+.surface {
+  position: relative;
+  isolation: isolate;
+}
+
+.surface > * {
+  position: relative;
+  z-index: 1;
+}
+
+.surface-spotlight {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(200, 255, 61, 0.16),
+    transparent 66%
+  );
+  opacity: 0;
+  transition: opacity var(--dur-micro) linear;
+}
+
+.surface:hover .surface-spotlight,
+.surface:focus-within .surface-spotlight {
+  opacity: 1;
+}
+
+.tilt {
+  transform: perspective(900px) rotateX(var(--rx, 0deg))
+    rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px)) scale(var(--press, 1));
+  transform-style: preserve-3d;
+  transition:
+    transform 240ms var(--ease-out),
+    border-color var(--dur-enter) var(--ease-out),
+    box-shadow var(--dur-enter) var(--ease-out);
+}
+
+.tilt:hover {
+  --lift: -4px;
+}
+
+.tilt:active {
+  --press: 0.99;
+}
+
+.tilt.is-tilting {
+  transition: transform 200ms var(--ease-out);
+  will-change: transform;
+}
+
+.border-anim::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg 300deg,
+    rgba(200, 255, 61, 0.85) 340deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--dur-micro) linear;
+}
+
+.border-anim:hover::before,
+.border-anim:focus-visible::before,
+.border-anim:focus-within::before {
+  opacity: 1;
+  animation: border-spin 6s linear infinite;
+}
+
+@keyframes border-spin {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+.word-swap {
+  display: inline-grid;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: inherit;
+}
+
+.word-swap > span {
+  grid-area: 1 / 1;
+  transition:
+    transform 200ms var(--ease-out),
+    opacity 200ms var(--ease-out);
+}
+
+.word-swap > span[data-active="false"] {
+  transform: translate3d(0, 110%, 0);
+  opacity: 0;
+}
+
+.word-swap > span[data-active="true"] {
+  transform: none;
+  opacity: 1;
+}
+
+/* Product detail demo: stacked by default so a JS failure never hides a beat. */
+.demo-stage {
+  position: relative;
+}
+
+.demo-panel + .demo-panel {
+  margin-top: var(--space-4);
+}
+
+.demo-stage[data-ready="true"] {
+  display: grid;
+}
+
+.demo-stage[data-ready="true"] .demo-panel {
+  grid-area: 1 / 1;
+  align-self: stretch;
+  margin-top: 0;
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity var(--dur-enter) var(--ease-out),
+    transform var(--dur-enter) var(--ease-out);
+}
+
+.demo-stage[data-ready="true"] .demo-panel[data-active="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal="hidden"],
+  [data-reveal-group="hidden"] > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-reveal="in"],
+  [data-reveal-group="in"] > * {
+    transition: none;
+  }
+
+  .surface-spotlight {
+    opacity: 0.5;
+    background: radial-gradient(
+      60% 60% at 50% 0%,
+      rgba(200, 255, 61, 0.1),
+      transparent 70%
+    );
+  }
+
+  .tilt,
+  .tilt:hover,
+  .tilt:active {
+    transform: none;
+  }
+
+  .border-anim::before {
+    animation: none;
+    background: linear-gradient(var(--accent), var(--accent));
+    opacity: 0;
+  }
+
+  .border-anim:hover::before,
+  .border-anim:focus-visible::before,
+  .border-anim:focus-within::before {
+    opacity: 1;
+  }
+
+  .word-swap > span {
+    transition: none;
+  }
+
+  .demo-stage[data-ready="true"] .demo-panel {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.hero-stage .surface-spotlight {
+  opacity: 0.55;
+}
+
+.hero-stage:hover .surface-spotlight {
+  opacity: 1;
 }

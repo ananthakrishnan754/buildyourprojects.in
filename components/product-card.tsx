@@ -1,43 +1,103 @@
-import Link from "next/link";
-import { formatPrice, type Product } from "@/data/products";
+"use client";
 
-export function ProductVisual({
-  product,
-  className = "",
-}: {
-  product: Product;
-  className?: string;
-}) {
-  return (
-    <div
-      aria-hidden="true"
-      className={`relative overflow-hidden rounded-lg border border-stroke bg-[radial-gradient(circle_at_25%_15%,rgba(200,255,61,0.14),transparent_42%),linear-gradient(145deg,#17171c_0%,#0d0d10_58%,#050506_100%)] ${className}`}
-    >
-      <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(rgba(244,244,247,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(244,244,247,0.06)_1px,transparent_1px)] [background-size:28px_28px]" />
-      <div className="absolute inset-x-5 top-1/2 -translate-y-1/2 space-y-2">
-        <div className="h-2 w-1/3 rounded-full bg-accent/70" />
-        <div className="h-2 w-4/5 rounded-full bg-n-4/50" />
-        <div className="h-2 w-2/3 rounded-full bg-n-4/30" />
-        <div className="mt-4 grid grid-cols-3 gap-2">
-          <div className="h-12 rounded-sm border border-stroke bg-n-2/80" />
-          <div className="h-12 rounded-sm border border-stroke bg-n-2/80" />
-          <div className="h-12 rounded-sm border border-accent/40 bg-accent/5" />
-        </div>
-      </div>
-      <div className="absolute bottom-3 left-5 right-5 flex items-center justify-between">
-        <span className="type-label text-n-4">{product.categoryLabel}</span>
-        <span className="size-1.5 rounded-full bg-accent" />
-      </div>
-    </div>
-  );
+import Link from "next/link";
+import { useRef } from "react";
+import { ProductVisual } from "@/components/product-visual";
+import { formatPrice, type Product } from "@/data/products";
+import { prefersReducedMotion } from "@/lib/motion";
+
+function useTilt() {
+  const ref = useRef<HTMLAnchorElement | null>(null);
+  const frame = useRef(0);
+  const returnTimer = useRef(0);
+
+  const reset = () => {
+    const element = ref.current;
+    if (!element) return;
+    element.style.setProperty("--rx", "0deg");
+    element.style.setProperty("--ry", "0deg");
+    element.style.removeProperty("--mx");
+    element.style.removeProperty("--my");
+  };
+
+  const onPointerEnter = (event: React.PointerEvent<HTMLAnchorElement>) => {
+    if (event.pointerType !== "mouse" || prefersReducedMotion()) return;
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+    window.clearTimeout(returnTimer.current);
+    ref.current?.classList.add("is-tilting");
+  };
+
+  const onPointerMove = (event: React.PointerEvent<HTMLAnchorElement>) => {
+    if (event.pointerType !== "mouse" || prefersReducedMotion()) return;
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+
+    const element = ref.current;
+    if (!element || frame.current) return;
+
+    const clientX = event.clientX;
+    const clientY = event.clientY;
+
+    frame.current = requestAnimationFrame(() => {
+      frame.current = 0;
+      const rect = element.getBoundingClientRect();
+      const x = (clientX - rect.left) / rect.width;
+      const y = (clientY - rect.top) / rect.height;
+
+      element.style.setProperty("--ry", `${((x - 0.5) * 6).toFixed(2)}deg`);
+      element.style.setProperty("--rx", `${((0.5 - y) * 6).toFixed(2)}deg`);
+      element.style.setProperty("--mx", `${(x * 100).toFixed(1)}%`);
+      element.style.setProperty("--my", `${(y * 100).toFixed(1)}%`);
+    });
+  };
+
+  const onPointerLeave = () => {
+    cancelAnimationFrame(frame.current);
+    frame.current = 0;
+    reset();
+    const element = ref.current;
+    if (!element) return;
+    window.clearTimeout(returnTimer.current);
+    returnTimer.current = window.setTimeout(() => {
+      element.classList.remove("is-tilting");
+    }, 240);
+  };
+
+  return {
+    ref,
+    onPointerEnter,
+    onPointerMove,
+    onPointerLeave,
+    onBlur: onPointerLeave,
+  };
 }
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({
+  product,
+  flipId,
+}: {
+  product: Product;
+  flipId?: string;
+}) {
+  const {
+    ref,
+    onPointerEnter,
+    onPointerMove,
+    onPointerLeave,
+    onBlur,
+  } = useTilt();
+
   return (
     <Link
+      ref={ref}
       href={`/products/${product.slug}`}
-      className="card card-interactive group flex h-full flex-col p-4"
+      data-flip-id={flipId}
+      className="card tilt border-anim surface group flex h-full flex-col p-4"
+      onPointerEnter={onPointerEnter}
+      onPointerMove={onPointerMove}
+      onPointerLeave={onPointerLeave}
+      onBlur={onBlur}
     >
+      <span className="surface-spotlight" aria-hidden="true" />
       <ProductVisual product={product} className="aspect-[4/5]" />
       <div className="flex flex-1 flex-col px-1 pb-1 pt-5">
         <div className="flex items-start justify-between gap-3">
