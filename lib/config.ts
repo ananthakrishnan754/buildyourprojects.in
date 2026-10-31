@@ -70,11 +70,16 @@ export function readPaymentConfig(
     };
   }
 
+  // Checkout needs the key pair. The webhook secret only gates webhook
+  // verification, so a captured payment can still be confirmed out-of-band by
+  // the browser handshake at /api/verify-payment.
+  const required = ["RAZORPAY_KEY_ID", "RAZORPAY_KEY_SECRET"].filter(
+    (name) => !read(env, name),
+  );
   const missing = [
-    "RAZORPAY_KEY_ID",
-    "RAZORPAY_KEY_SECRET",
-    "RAZORPAY_WEBHOOK_SECRET",
-  ].filter((name) => !read(env, name));
+    ...required,
+    ...["RAZORPAY_WEBHOOK_SECRET"].filter((name) => !read(env, name)),
+  ];
 
   const keyId = read(env, "RAZORPAY_KEY_ID");
 
@@ -101,12 +106,12 @@ export function readPaymentConfig(
     };
   }
 
-  if (missing.length > 0) {
+  if (required.length > 0) {
     return {
       requested,
       provider: null,
       enabled: false,
-      reason: `Razorpay test keys are not configured (missing ${missing.join(", ")})`,
+      reason: `Razorpay test keys are not configured (missing ${required.join(", ")})`,
       missing,
       testMode: true,
     };
@@ -116,8 +121,11 @@ export function readPaymentConfig(
     requested,
     provider: "razorpay",
     enabled: true,
-    reason: "Razorpay test mode",
-    missing: [],
+    reason:
+      missing.length > 0
+        ? `Razorpay test mode (webhook verification off: ${missing.join(", ")} missing)`
+        : "Razorpay test mode",
+    missing,
     testMode: true,
   };
 }

@@ -186,12 +186,62 @@ export function BuyPanel({ product, compact = false }: BuyPanelProps) {
         prefill: session.prefill,
         notes: { orderNumber: session.orderNumber },
         theme: { color: "#141414" },
-        handler: () => {
-          setSuccess(
-            `Payment received. A receipt and your download link are on the way to ${email.trim()} — check spam if it does not arrive in a few minutes.`,
-          );
-          setSubmitting(false);
-          idempotencyKey.current = null;
+        handler: (paymentResponse: {
+          razorpay_payment_id?: string;
+          razorpay_order_id?: string;
+          razorpay_signature?: string;
+        }) => {
+          const paymentId = paymentResponse.razorpay_payment_id;
+          const orderId = paymentResponse.razorpay_order_id;
+          const signature = paymentResponse.razorpay_signature;
+
+          if (!paymentId || !orderId || !signature) {
+            setError(
+              "The payment form returned incomplete details. Email us and we will confirm the payment manually.",
+            );
+            setSubmitting(false);
+            return;
+          }
+
+          void (async () => {
+            try {
+              const verifyResponse = await fetch("/api/verify-payment", {
+                method: "POST",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify({
+                  razorpay_order_id: orderId,
+                  razorpay_payment_id: paymentId,
+                  razorpay_signature: signature,
+                }),
+              });
+
+              if (!verifyResponse.ok) {
+                throw new Error(await readError(verifyResponse));
+              }
+
+              const outcome = (await verifyResponse.json()) as {
+                downloadUrl?: string;
+                emailStatus?: string;
+              };
+
+              setSuccess(
+                outcome.downloadUrl
+                  ? `Payment verified. Your download link (valid for 72 hours): ${outcome.downloadUrl}`
+                  : outcome.emailStatus === "sent"
+                    ? `Payment verified. Your receipt and download link are on the way to ${email.trim()}.`
+                    : `Payment verified. Your download link was created but the receipt email is ${outcome.emailStatus ?? "queued"} — email us if you need it re-sent.`,
+              );
+              idempotencyKey.current = null;
+            } catch (verifyError) {
+              setError(
+                verifyError instanceof Error
+                  ? `Payment could not be verified: ${verifyError.message}`
+                  : "Payment could not be verified. Email us before retrying.",
+              );
+            } finally {
+              setSubmitting(false);
+            }
+          })();
         },
         modal: {
           ondismiss: () => setSubmitting(false),

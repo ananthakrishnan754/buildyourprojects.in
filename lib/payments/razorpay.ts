@@ -47,6 +47,39 @@ export function verifyRazorpaySignature(
   }
 }
 
+/**
+ * Standard Checkout handshake: the browser returns
+ * `razorpay_order_id | razorpay_payment_id | razorpay_signature` and the
+ * signature must equal HMAC-SHA256(order_id + "|" + payment_id, KEY_SECRET).
+ * This is a different secret/algorithm from the webhook signature.
+ */
+export function verifyRazorpayPaymentSignature(input: {
+  orderId: string;
+  paymentId: string;
+  signature: string | null | undefined;
+  keySecret: string;
+}): boolean {
+  const { orderId, paymentId, signature, keySecret } = input;
+
+  if (!orderId || !paymentId || !signature || !keySecret) return false;
+
+  const expected = createHmac("sha256", keySecret)
+    .update(`${orderId}|${paymentId}`, "utf8")
+    .digest("hex");
+  const provided = signature.trim().toLowerCase();
+
+  if (expected.length !== provided.length) return false;
+
+  try {
+    return timingSafeEqual(
+      Buffer.from(expected, "utf8"),
+      Buffer.from(provided, "utf8"),
+    );
+  } catch {
+    return false;
+  }
+}
+
 function safeJson(rawBody: string): unknown {
   try {
     return JSON.parse(rawBody);
@@ -76,7 +109,8 @@ export class RazorpayProvider implements PaymentProvider {
 
     if (!this.keyId) errors.push("RAZORPAY_KEY_ID is missing");
     if (!this.keySecret) errors.push("RAZORPAY_KEY_SECRET is missing");
-    if (!this.webhookSecret) errors.push("RAZORPAY_WEBHOOK_SECRET is missing");
+    // A missing webhook secret only disables webhook verification; the browser
+    // handshake at /api/verify-payment still confirms a captured payment.
 
     if (this.keyId?.startsWith(LIVE_KEY_PREFIX)) {
       errors.push("RAZORPAY_KEY_ID is a live key; test mode only");

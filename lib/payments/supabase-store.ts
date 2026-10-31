@@ -412,6 +412,9 @@ export class SupabaseOrderStore implements OrderStore {
     const { data, error } = await this.client
       .from("downloads")
       .insert({
+        // The signing token is built around this id, so the row must keep it.
+        // Letting Postgres generate a fresh uuid here breaks every download link.
+        id: input.id,
         order_id: input.orderId,
         product_id: input.productId,
         product_slug: input.productSlug,

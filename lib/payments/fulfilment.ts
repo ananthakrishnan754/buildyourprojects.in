@@ -24,6 +24,8 @@ export type FulfilmentResult = {
   downloadId: string;
   expiresAt: string;
   emailStatus: EmailStatus;
+  /** Signed, expiring download link. Present only when delivery is configured. */
+  downloadUrl?: string;
 };
 
 /**
@@ -108,6 +110,7 @@ export async function fulfilPaidOrder(
       downloadId: download.id,
       expiresAt: expiresAt.toISOString(),
       emailStatus: "queued",
+      downloadUrl,
     };
   }
 
@@ -131,6 +134,7 @@ export async function fulfilPaidOrder(
       downloadId: download.id,
       expiresAt: expiresAt.toISOString(),
       emailStatus: "sent",
+      downloadUrl,
     };
   } catch (error) {
     const message =
@@ -148,6 +152,7 @@ export async function fulfilPaidOrder(
       downloadId: download.id,
       expiresAt: expiresAt.toISOString(),
       emailStatus: "failed",
+      downloadUrl,
     };
   }
 }

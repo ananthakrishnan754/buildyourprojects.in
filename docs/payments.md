@@ -276,3 +276,36 @@ owner can resend from the database. It is never marked as sent.
 - Supabase CLI / migrations — https://supabase.com/docs/guides/cli
 - Resend API — https://resend.com/docs/api-reference/emails/send-email
 - Nodemailer SMTP — https://nodemailer.com/smtp/
+
+## Standard Checkout handshake — `/api/verify-payment`
+
+The browser path that confirms a captured payment without waiting for a webhook.
+
+- `POST /api/verify-payment`
+- Body: `{ "razorpay_order_id", "razorpay_payment_id", "razorpay_signature" }`
+  (aliases `order_id` / `payment_id` / `signature` accepted for server callers)
+- Verification: `HMAC-SHA256(order_id + "|" + payment_id, RAZORPAY_KEY_SECRET)`,
+  compared with `timingSafeEqual`. A mismatch returns **400** and the order is
+  never marked paid.
+- On success: records the payment, transitions the order to `paid` at most once,
+  then issues the download token and queues the receipt.
+- Replays return `{ "status": "already_confirmed" }` and never double-fulfil.
+- Rate limited per IP (20/min). Missing fields return 400.
+
+The webhook endpoint `/api/webhooks/razorpay` remains the durable path; the
+handshake exists so a payment is honoured even before a webhook secret is set.
+
+### Verified in test mode (2026-10-31)
+
+| Step | Result |
+|---|---|
+| Order create → Razorpay API | `order_TudOhJU3OyuKEF` created for ₹499 |
+| Card `4100 2800 0000 1007` via mock bank | payment captured |
+| `POST /api/verify-payment` | `{ ok: true, status: "confirmed" }` |
+| Order row | `paid`, customer email recorded |
+| Download row | created, id matches the signed token, 72h expiry, 5 attempts |
+| Replay of the same handshake | `already_confirmed`, no second download |
+| Tampered signature | 400, order untouched |
+| Missing field | 400 |
+| Download URL | 503 `deliverable_not_published` — the file itself ships in the
+  product-build phase; the attempt is not consumed |
