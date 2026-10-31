@@ -45,3 +45,7 @@ node_modules/
 .env
 .env.local
 !.env.example
+
+# paid deliverables (owner uploads at deploy time)
+private/downloads/*
+!private/downloads/README.md
