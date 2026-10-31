@@ -74,9 +74,11 @@ function useTilt() {
 export function ProductCard({
   product,
   flipId,
+  paymentsEnabled = false,
 }: {
   product: Product;
   flipId?: string;
+  paymentsEnabled?: boolean;
 }) {
   const {
     ref,
@@ -105,7 +107,9 @@ export function ProductCard({
             <p className="type-label text-muted">{product.kicker}</p>
             <h3 className="mt-2 type-h3">{product.name}</h3>
           </div>
-          <span className="badge shrink-0">Coming soon</span>
+          <span className="badge shrink-0">
+            {paymentsEnabled ? "On sale" : "Coming soon"}
+          </span>
         </div>
         <p className="mt-3 type-body-sm text-muted">{product.tagline}</p>
         <div className="mt-auto flex items-end justify-between gap-3 pt-6">
@@ -113,7 +117,7 @@ export function ProductCard({
             {formatPrice(product.price)}
           </span>
           <span className="inline-flex min-h-11 items-center text-sm font-semibold text-accent">
-            View pack
+            {paymentsEnabled ? "Buy pack" : "View pack"}
             <svg
               aria-hidden="true"
               className="ml-1.5"

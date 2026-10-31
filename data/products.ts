@@ -78,7 +78,7 @@ export const products: Product[] = [
       {
         question: "When can I buy it?",
         answer:
-          "Checkout is not live in this build. The buy button stays disabled with a clear coming-soon state until payments and delivery are implemented and tested.",
+          "Checkout opens once the payment provider is configured and the flow is tested in test mode. Until then the buy button stays disabled with a clear message and no order is created.",
       },
     ],
   },
@@ -131,7 +131,7 @@ export const products: Product[] = [
       {
         question: "When can I buy it?",
         answer:
-          "Checkout is not live in this build. The buy button stays disabled with a clear coming-soon state until payments and delivery are implemented and tested.",
+          "Checkout opens once the payment provider is configured and the flow is tested in test mode. Until then the buy button stays disabled with a clear message and no order is created.",
       },
     ],
   },
@@ -187,7 +187,7 @@ export const products: Product[] = [
       {
         question: "When can I buy it?",
         answer:
-          "Checkout is not live in this build. The buy button stays disabled with a clear coming-soon state until payments and delivery are implemented and tested.",
+          "Checkout opens once the payment provider is configured and the flow is tested in test mode. Until then the buy button stays disabled with a clear message and no order is created.",
       },
     ],
   },

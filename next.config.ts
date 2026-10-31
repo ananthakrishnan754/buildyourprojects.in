@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   outputFileTracingIncludes: {
     "/images/[...path]": ["./images/**/*"],
+    "/api/downloads/[token]": ["./private/downloads/**/*"],
   },
   async redirects() {
     return [

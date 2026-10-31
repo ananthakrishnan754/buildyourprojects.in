@@ -7,6 +7,7 @@ import { TodoSlot } from "@/components/todo-slot";
 import { products, formatPrice } from "@/data/products";
 import { projectService, projects } from "@/data/projects";
 import { site, whatsappLink } from "@/data/site";
+import { getPaymentConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Submission kits for engineering students",
@@ -67,6 +68,7 @@ const homeFaq = [
 ];
 
 export default function HomePage() {
+  const paymentsEnabled = getPaymentConfig().enabled;
   return (
     <>
       <section className="relative overflow-hidden border-b border-stroke">
@@ -185,7 +187,11 @@ export default function HomePage() {
 
           <div className="mt-10 grid gap-5 min-[480px]:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
-              <ProductCard key={product.slug} product={product} />
+              <ProductCard
+                key={product.slug}
+                product={product}
+                paymentsEnabled={paymentsEnabled}
+              />
             ))}
           </div>
           <p className="mt-6 type-body-sm text-muted">

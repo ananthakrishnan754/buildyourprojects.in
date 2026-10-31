@@ -18,7 +18,11 @@ type SortOption = "featured" | "price-asc" | "price-desc";
 
 type FlipState = ReturnType<FlipKit["Flip"]["getState"]>;
 
-export function ProductGrid() {
+export function ProductGrid({
+  paymentsEnabled = false,
+}: {
+  paymentsEnabled?: boolean;
+}) {
   const [category, setCategory] = useState<"all" | ProductCategory>("all");
   const [sort, setSort] = useState<SortOption>("featured");
   const { ref: gridRef, state: revealState } = useRevealState<HTMLDivElement>();
@@ -166,6 +170,7 @@ export function ProductGrid() {
             key={product.slug}
             product={product}
             flipId={product.slug}
+            paymentsEnabled={paymentsEnabled}
           />
         ))}
       </div>

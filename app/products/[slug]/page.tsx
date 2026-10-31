@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BuyPanel } from "@/components/buy-panel";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { ProductDemo } from "@/components/product-demo";
 import { ProductVisual } from "@/components/product-visual";
@@ -8,6 +9,7 @@ import { Reveal, RevealGroup } from "@/components/reveal";
 import { TodoSlot } from "@/components/todo-slot";
 import { formatPrice, getProduct, products } from "@/data/products";
 import { site, whatsappLink } from "@/data/site";
+import { getPaymentConfig } from "@/lib/config";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -45,6 +47,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
   if (!product) notFound();
 
   const related = products.filter((item) => item.slug !== product.slug);
+  const paymentsEnabled = getPaymentConfig().enabled;
 
   return (
     <div className="pb-24 md:pb-0">
@@ -90,37 +93,32 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 </span>
               </div>
 
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <button
-                  type="button"
-                  disabled
-                  className="btn btn-primary w-full sm:w-auto"
-                >
-                  Buy now — coming soon
-                </button>
-                <a
-                  href={whatsappLink(
-                    `Hi! I have a question about ${product.name}.`,
-                  )}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-secondary w-full sm:w-auto"
-                >
-                  Ask on WhatsApp
-                </a>
-              </div>
+              <BuyPanel
+                product={{
+                  slug: product.slug,
+                  name: product.name,
+                  price: product.price,
+                }}
+              />
 
-              <p className="mt-4 type-body-sm text-muted">
-                Checkout is not live. Payments and digital delivery are being
-                implemented and tested before the buy button is enabled.
-              </p>
+              <a
+                href={whatsappLink(
+                  `Hi! I have a question about ${product.name}.`,
+                )}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-secondary mt-3 w-full sm:w-auto"
+              >
+                Ask on WhatsApp
+              </a>
 
               <div className="mt-8 rounded-lg border border-stroke bg-surface p-5">
-                <p className="type-label text-muted">Delivery, once live</p>
+                <p className="type-label text-muted">Delivery</p>
                 <p className="mt-2 type-body-sm text-muted">
-                  Intended delivery is a secure download link plus an email
-                  receipt after payment confirmation. Final delivery wording is
-                  pending owner review.
+                  After the payment webhook is verified, you receive an email
+                  receipt with a signed download link that expires and is
+                  limited to this order. Links are not issued before payment is
+                  confirmed.
                 </p>
                 <p className="mt-3 type-body-sm text-muted">
                   Read the{" "}
@@ -280,13 +278,15 @@ export default async function ProductDetailPage({ params }: PageProps) {
               {formatPrice(product.price)}
             </p>
           </div>
-          <button
-            type="button"
-            disabled
-            className="btn btn-primary shrink-0"
-          >
-            Coming soon
-          </button>
+          {paymentsEnabled ? (
+            <a href="#buy" className="btn btn-primary shrink-0">
+              Buy now
+            </a>
+          ) : (
+            <button type="button" disabled className="btn btn-primary shrink-0">
+              Coming soon
+            </button>
+          )}
         </div>
       </div>
     </div>

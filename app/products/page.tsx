@@ -4,6 +4,7 @@ import { ProductGrid } from "@/components/product-grid";
 import { SectionHeading } from "@/components/section-heading";
 import { TodoSlot } from "@/components/todo-slot";
 import { products } from "@/data/products";
+import { getPaymentConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 };
 
 export default function ProductsPage() {
+  const paymentsEnabled = getPaymentConfig().enabled;
   return (
     <>
       <section className="border-b border-stroke">
@@ -46,11 +48,13 @@ export default function ProductsPage() {
 
             <div className="card p-5">
               <p className="type-label text-muted">Status</p>
-              <p className="mt-3 type-h3">Checkout is coming soon</p>
+              <p className="mt-3 type-h3">
+                {paymentsEnabled ? "Checkout is open" : "Checkout is coming soon"}
+              </p>
               <p className="mt-2 type-body-sm text-muted">
-                Prices are approved, but payments and delivery are still being
-                built and tested. Buy buttons stay disabled until that flow
-                passes.
+                {paymentsEnabled
+                  ? "Test-mode checkout is enabled. Your download link is emailed only after the payment webhook is verified."
+                  : "Payments and delivery are built but waiting for test keys. Buy buttons stay disabled and no order can be created until the provider is configured."}
               </p>
               <p className="mt-3 type-body-sm text-muted">
                 {products.length} products published. Bundle pricing is not on
@@ -69,7 +73,7 @@ export default function ProductsPage() {
             description="All three packs are study aids or tools. None of them writes or submits academic work for you."
           />
           <div className="mt-8">
-            <ProductGrid />
+            <ProductGrid paymentsEnabled={paymentsEnabled} />
           </div>
         </div>
       </section>
