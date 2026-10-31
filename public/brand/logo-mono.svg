@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="BuildYourProjects">
+  <title>BuildYourProjects — single colour</title>
+  <g fill="currentColor">
+    <rect x="10" y="10" width="10" height="19" rx="1"/>
+    <rect x="10" y="35" width="10" height="19" rx="1"/>
+    <path d="M24 10h14l18 22-18 22H24l14-22z"/>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 64" role="img" aria-label="BuildYourProjects">
+  <title>BuildYourProjects wordmark</title>
+  <g fill="#C8FF3D">
+    <rect x="4" y="10" width="10" height="19" rx="1"/>
+    <rect x="4" y="35" width="10" height="19" rx="1"/>
+    <path d="M18 10h14l18 22-18 22H18l14-22z"/>
+  </g>
+  <text x="72" y="42" fill="#F4F4F7" font-family="Bricolage Grotesque, Inter, system-ui, sans-serif" font-size="27" font-weight="700" letter-spacing="-0.6">Build<tspan fill="#C8FF3D">Your</tspan>Projects</text>
+</svg>

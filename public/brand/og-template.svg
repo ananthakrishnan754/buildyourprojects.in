@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="BuildYourProjects social card">
+  <rect width="1200" height="630" fill="#050506"/>
+  <rect x="0" y="590" width="1200" height="8" fill="#C8FF3D"/>
+  <g transform="translate(80,72) scale(1.15)" fill="#C8FF3D">
+    <rect x="10" y="10" width="10" height="19" rx="1"/>
+    <rect x="10" y="35" width="10" height="19" rx="1"/>
+    <path d="M24 10h14l18 22-18 22H24l14-22z"/>
+  </g>
+  <text x="80" y="330" fill="#F4F4F7" font-family="Bricolage Grotesque, Inter, system-ui, sans-serif" font-size="76" font-weight="700" letter-spacing="-2">Your project submission,</text>
+  <text x="80" y="418" fill="#C8FF3D" font-family="Bricolage Grotesque, Inter, system-ui, sans-serif" font-size="76" font-weight="700" letter-spacing="-2">done in one night.</text>
+  <text x="80" y="508" fill="#8F8F9C" font-family="Inter, system-ui, sans-serif" font-size="30">Code · IEEE report · Defence deck · Viva answers</text>
+  <text x="1120" y="508" fill="#F4F4F7" font-family="Inter, system-ui, sans-serif" font-size="30" text-anchor="end">buildyourprojects.xyz</text>
+</svg>
