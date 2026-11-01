@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { ProductCard } from "@/components/product-card";
@@ -74,18 +75,18 @@ export default function HomePage() {
       <section className="relative overflow-hidden border-b border-stroke">
         <div className="container-site grid gap-12 py-16 md:grid-cols-[7fr_5fr] md:items-center md:py-24 lg:py-28">
           <div>
-            <p className="type-label text-muted">
+            <p className="type-label text-muted" data-reveal style={{ "--i": 0 } as React.CSSProperties}>
               For Indian engineering students
             </p>
-            <h1 className="type-display-1 mt-5 max-w-[13ch]">
+            <h1 className="type-display-1 mt-5 max-w-[13ch]" data-reveal style={{ "--i": 1 } as React.CSSProperties}>
               Your project. Submission-ready.
             </h1>
-            <p className="prose-measure mt-6 type-body-lg text-muted">
+            <p className="prose-measure mt-6 type-body-lg text-muted" data-reveal style={{ "--i": 2 } as React.CSSProperties}>
               Working code, an IEEE-format report, a defence deck and viva
               answers. Built for the student who needs to submit and defend, not
               just watch another tutorial.
             </p>
-            <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center" data-reveal style={{ "--i": 3 } as React.CSSProperties}>
               <Link
                 href="/products/submission-kit"
                 className="btn btn-primary w-full sm:w-auto"
@@ -108,8 +109,9 @@ export default function HomePage() {
           <div
             aria-hidden="true"
             className="relative mx-auto h-[340px] w-full max-w-[440px] md:h-[420px]"
+            data-parallax="34"
           >
-            <div className="absolute inset-x-8 top-6 h-56 rotate-[-7deg] rounded-xl border border-stroke bg-elevated/80 p-5 shadow-e2">
+            <div className="absolute inset-x-8 top-6 h-56 rotate-[-7deg] rounded-xl border border-stroke bg-elevated/80 p-5 shadow-e2" data-parallax="22">
               <span className="type-label text-muted">Code</span>
               <div className="mt-5 space-y-2">
                 <div className="h-2 w-2/3 rounded-full bg-n-4/50" />
@@ -118,7 +120,7 @@ export default function HomePage() {
                 <div className="h-2 w-3/4 rounded-full bg-n-4/20" />
               </div>
             </div>
-            <div className="absolute inset-x-12 top-28 h-56 rotate-[3deg] rounded-xl border border-stroke-strong bg-n-2 p-5 shadow-e3">
+            <div className="absolute inset-x-12 top-28 h-56 rotate-[3deg] rounded-xl border border-stroke-strong bg-n-2 p-5 shadow-e3" data-parallax="46">
               <span className="type-label text-muted">Report</span>
               <div className="mt-5 space-y-2">
                 <div className="h-2 w-1/3 rounded-full bg-n-5/60" />
@@ -132,7 +134,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="absolute inset-x-4 bottom-2 h-40 rotate-[-2deg] rounded-xl border border-stroke bg-surface p-5 shadow-e2">
+            <div className="absolute inset-x-4 bottom-2 h-40 rotate-[-2deg] rounded-xl border border-stroke bg-surface p-5 shadow-e2" data-parallax="12">
               <span className="type-label text-muted">Viva</span>
               <div className="mt-4 grid grid-cols-3 gap-2">
                 <div className="h-16 rounded-sm border border-stroke bg-elevated" />
@@ -140,6 +142,22 @@ export default function HomePage() {
                 <div className="h-16 rounded-sm border border-stroke bg-elevated" />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden border-b border-stroke" aria-label="Inside a project workspace">
+        <div className="container-wide py-8 md:py-12">
+          <div className="clip-reveal" data-parallax="60">
+            <Image
+              src="/media/hero-workbench.webp"
+              alt="A dark workbench with a rolled technical blueprint, an open laptop and thin lime accent lighting"
+              width={1600}
+              height={900}
+              priority
+              sizes="(min-width: 1280px) 1200px, 100vw"
+              className="h-auto w-full rounded-lg border border-stroke object-cover"
+            />
           </div>
         </div>
       </section>

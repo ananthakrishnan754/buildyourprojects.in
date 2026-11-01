@@ -49,3 +49,4 @@ node_modules/
 # paid deliverables (owner uploads at deploy time)
 private/downloads/*
 !private/downloads/README.md
+assets/generated/

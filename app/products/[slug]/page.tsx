@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { BuyPanel } from "@/components/buy-panel";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { ProductDemo } from "@/components/product-demo";
+import Image from "next/image";
 import { ProductVisual } from "@/components/product-visual";
 import { Reveal, RevealGroup } from "@/components/reveal";
 import { TodoSlot } from "@/components/todo-slot";
@@ -12,6 +13,12 @@ import { site, whatsappLink } from "@/data/site";
 import { getPaymentConfig } from "@/lib/config";
 
 type PageProps = { params: Promise<{ slug: string }> };
+
+const mockups: Record<string, string> = {
+  "submission-kit": "/media/product-submission-kit.webp",
+  reportforge: "/media/product-reportforge.webp",
+  "viva-vault": "/media/product-viva-vault.webp",
+};
 
 export const dynamicParams = false;
 
@@ -67,7 +74,20 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
           <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div className="lg:sticky lg:top-24 lg:self-start">
-              <ProductVisual product={product} className="aspect-[4/5]" />
+              <div data-parallax="40" className="clip-reveal scroll-scale">
+                {mockups[product.slug] ? (
+                  <Image
+                    src={mockups[product.slug]}
+                    alt={`${product.name} pack preview on a dark workbench`}
+                    width={1100}
+                    height={1375}
+                    sizes="(min-width: 1024px) 520px, 100vw"
+                    className="h-auto w-full rounded-lg border border-stroke object-cover"
+                  />
+                ) : (
+                  <ProductVisual product={product} className="aspect-[4/5]" />
+                )}
+              </div>
               <div className="mt-4">
                 <TodoSlot label="Demo / preview slot">
                   Replace this block with the real product demo, sample pages or

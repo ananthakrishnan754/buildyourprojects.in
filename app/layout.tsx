@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Inter } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { MotionProvider } from "@/components/motion-provider";
+import { ScrollEffects } from "@/components/scroll-effects";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -77,6 +78,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <MotionProvider />
+        <ScrollEffects />
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
